@@ -12,7 +12,6 @@ import {
   Droplets,
 } from "lucide-react";
 import { SiteNav } from "./components/SiteNav";
-import { BeforeAfterCompare } from "./components/BeforeAfterCompare";
 
 export const metadata: Metadata = {
   title: "Mold Inspection & Removal in New York | BPI Mold Solutions",
@@ -65,25 +64,6 @@ const services = [
     title: "Water Damage Prevention",
     href: "/water-damage-prevention",
     icon: <Droplets className="h-7 w-7 text-[#94D62D]" />,
-  },
-];
-
-const results = [
-  {
-    title: "Healthier Home",
-    icon: <ShieldCheck className="h-7 w-7 text-[#94D62D]" />,
-  },
-  {
-    title: "Protect Your Property",
-    icon: <House className="h-7 w-7 text-[#94D62D]" />,
-  },
-  {
-    title: "Safe Remediation",
-    icon: <Leaf className="h-7 w-7 text-[#94D62D]" />,
-  },
-  {
-    title: "Fast Response",
-    icon: <Clock3 className="h-7 w-7 text-[#94D62D]" />,
   },
 ];
 
@@ -189,47 +169,90 @@ export default function Home() {
 
       <section className="bg-[#06164A] px-6 py-16 sm:py-20 md:px-16 md:py-24">
         <div className="mx-auto max-w-7xl">
-        <div className="mx-auto mb-12 max-w-3xl text-center md:mb-14">
-          <p className="mb-4 text-sm uppercase tracking-[0.3em] text-[#94D62D]">
-            Real Results
-          </p>
+          <div className="mb-12 max-w-3xl md:mb-14">
+            <p className="mb-4 text-sm uppercase tracking-[0.3em] text-[#94D62D]">
+              Before & After
+            </p>
 
-          <h2 className="text-3xl font-bold leading-tight sm:text-4xl md:text-6xl">
-            From Unsafe To <span className="text-[#94D62D]">Protected.</span>
-          </h2>
+            <h2 className="text-3xl font-bold leading-tight sm:text-4xl md:text-6xl">
+              See The Difference Professional Remediation Makes.
+            </h2>
 
-          <p className="mt-5 text-base leading-7 text-white/65 sm:text-lg sm:leading-8">
-            Mold can hide in plain sight. Our remediation process restores
-            safety, comfort, and healthier indoor air.
-          </p>
-        </div>
+            <p className="mt-6 max-w-3xl text-base leading-7 text-white/65 sm:text-lg sm:leading-8">
+              Mold can spread behind walls and under surfaces. Our process focuses
+              on safe containment, removal, and prevention—helping restore cleaner,
+              healthier indoor environments.
+            </p>
+          </div>
 
-        <BeforeAfterCompare
-          beforeSrc="/images/before.png"
-          beforeAlt="Before mold remediation"
-          afterSrc="/images/after.png"
-          afterAlt="After mold remediation"
-        />
-
-        <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:mt-14 lg:grid-cols-4">
-          {results.map((item) => (
-            <div
-              key={item.title}
-              className="rounded-3xl border border-white/10 bg-white/[0.03] p-7 text-center"
-            >
-              <div className="mx-auto mb-5 flex h-14 w-14 items-center justify-center rounded-full border border-[#94D62D]/40 bg-[#445A2A]/20">
-                {item.icon}
+          <div className="grid gap-6 lg:grid-cols-2">
+            <div className="overflow-hidden rounded-[2rem] border border-white/10 bg-white/[0.03]">
+              <div className="relative aspect-[16/11] sm:aspect-[16/10] md:aspect-[16/9]">
+                <img
+                  src="/images/before.png"
+                  alt="Before mold remediation"
+                  className="h-full w-full object-cover"
+                />
+                <div className="absolute left-4 top-4 rounded-2xl bg-black/55 px-5 py-4 backdrop-blur sm:left-6 sm:top-6">
+                  <p className="text-sm font-bold uppercase text-white">Before</p>
+                  <p className="mt-1 text-sm text-white/75">
+                    Mold growth • Unsafe air
+                  </p>
+                </div>
               </div>
-
-              <h3 className="text-xl font-semibold">{item.title}</h3>
-
-              <p className="mt-3 text-sm leading-6 text-white/60">
-                Professional solutions designed to restore comfort, safety, and
-                peace of mind.
-              </p>
+              <div className="p-6 sm:p-8">
+                <p className="text-sm uppercase tracking-[0.2em] text-white/50">
+                  Common signs
+                </p>
+                <p className="mt-2 text-base leading-7 text-white/70">
+                  Visible staining, musty odors, and moisture damage can indicate
+                  hidden growth that needs professional attention.
+                </p>
+              </div>
             </div>
-          ))}
-        </div>
+
+            <div className="overflow-hidden rounded-[2rem] border border-[#94D62D]/25 bg-white/[0.03]">
+              <div className="relative aspect-[16/11] sm:aspect-[16/10] md:aspect-[16/9]">
+                <img
+                  src="/images/after.png"
+                  alt="After mold remediation"
+                  className="h-full w-full object-cover"
+                />
+                <div className="absolute right-4 top-4 rounded-2xl bg-black/55 px-5 py-4 backdrop-blur sm:right-6 sm:top-6">
+                  <p className="text-sm font-bold uppercase text-[#94D62D]">
+                    After
+                  </p>
+                  <p className="mt-1 text-sm text-white/75">
+                    Clean surfaces • Healthier air
+                  </p>
+                </div>
+              </div>
+              <div className="p-6 sm:p-8">
+                <p className="text-sm uppercase tracking-[0.2em] text-white/50">
+                  Our outcome
+                </p>
+                <p className="mt-2 text-base leading-7 text-white/70">
+                  Cleaned and treated areas with improved indoor conditions—backed
+                  by a process designed for safety and long-term prevention.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div className="mt-10 flex flex-col gap-4 sm:flex-row sm:items-center">
+            <a
+              href="/contact"
+              className="rounded-full bg-[#94D62D] px-8 py-4 text-center font-semibold text-[#06164A] transition hover:bg-white"
+            >
+              Get A Mold Inspection
+            </a>
+            <a
+              href="/services"
+              className="rounded-full border border-white/20 px-8 py-4 text-center font-semibold text-white/90 transition hover:border-[#94D62D] hover:text-[#94D62D]"
+            >
+              Explore All Services
+            </a>
+          </div>
         </div>
       </section>
 

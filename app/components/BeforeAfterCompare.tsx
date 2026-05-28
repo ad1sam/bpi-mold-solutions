@@ -1,6 +1,6 @@
 "use client";
 
-import { useId, useMemo, useState } from "react";
+import { useState } from "react";
 
 type Props = {
   beforeSrc: string;
@@ -18,8 +18,6 @@ export function BeforeAfterCompare({
   initial = 52,
 }: Props) {
   const [value, setValue] = useState(() => Math.min(90, Math.max(10, initial)));
-  const uid = useId();
-  const sliderId = useMemo(() => `before-after-${uid}`, [uid]);
 
   return (
     <div className="relative overflow-hidden rounded-[2rem] border border-[#94D62D]/30">
@@ -65,11 +63,7 @@ export function BeforeAfterCompare({
           <p className="mt-1 text-sm text-white/75">Clean surfaces • Healthy air</p>
         </div>
 
-        <label htmlFor={sliderId} className="sr-only">
-          Drag to compare before and after
-        </label>
         <input
-          id={sliderId}
           type="range"
           min={0}
           max={100}
@@ -79,7 +73,7 @@ export function BeforeAfterCompare({
           style={{
             WebkitTapHighlightColor: "transparent",
           }}
-          aria-label="Before and after slider"
+          aria-label="Drag to compare before and after"
         />
 
         <div className="pointer-events-none absolute inset-x-0 bottom-6 mx-auto w-[min(28rem,calc(100%-2rem))]">
