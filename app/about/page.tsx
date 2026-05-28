@@ -21,19 +21,19 @@ export const metadata: Metadata = {
 };
 
 export default function AboutPage() {
-    return (
-      <main className="min-h-screen bg-[#06164A] text-white">
-        <SiteNav />
-        <div className="mx-auto max-w-7xl px-6 pb-20 pt-32 md:px-16">
-          <h1 className="text-4xl font-bold leading-tight sm:text-5xl md:text-7xl">
-            About Us
-          </h1>
-  
-          <p className="mt-6 max-w-2xl text-base leading-7 text-white/70 sm:text-lg sm:leading-8">
-            BPI Mold Solutions provides professional mold inspection and remediation
-            services across New York State.
-          </p>
-        </div>
-      </main>
-    );
-  }
+  return (
+    <main className="min-h-screen bg-white text-[#0F172A]">
+      <SiteNav />
+      <div className="mx-auto max-w-7xl px-6 pb-24 pt-32 md:px-16 md:pb-28 md:pt-36">
+        <h1 className="text-4xl font-bold leading-tight tracking-tight sm:text-5xl md:text-6xl">
+          About Us
+        </h1>
+
+        <p className="mt-8 max-w-2xl text-lg leading-8 text-slate-600">
+          BPI Mold Solutions provides professional mold inspection and remediation
+          services across New York State.
+        </p>
+      </div>
+    </main>
+  );
+}

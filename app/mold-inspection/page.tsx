@@ -22,23 +22,23 @@ export const metadata: Metadata = {
 };
 
 export default function MoldInspectionPage() {
-    return (
-      <main className="min-h-screen bg-[#06164A] text-white">
-        <SiteNav />
-        <div className="mx-auto max-w-7xl px-6 pb-20 pt-32 md:px-16">
-          <p className="mb-4 text-sm uppercase tracking-[0.3em] text-[#94D62D]">
-            BPI Mold Solutions
-          </p>
-  
-          <h1 className="text-4xl font-bold leading-tight sm:text-5xl md:text-7xl">
-            Mold Inspection Services
-          </h1>
-  
-          <p className="mt-6 max-w-3xl text-base leading-7 text-white/70 sm:text-lg sm:leading-8">
-            Detailed mold inspection services designed to identify hidden mold,
-            moisture problems, and potential indoor air quality risks.
-          </p>
-        </div>
-      </main>
-    );
-  }
+  return (
+    <main className="min-h-screen bg-white text-[#0F172A]">
+      <SiteNav />
+      <div className="mx-auto max-w-7xl px-6 pb-24 pt-32 md:px-16 md:pb-28 md:pt-36">
+        <p className="mb-4 text-sm font-semibold uppercase tracking-[0.3em] text-[#445A2A]">
+          BPI Mold Solutions
+        </p>
+
+        <h1 className="text-4xl font-bold leading-tight tracking-tight sm:text-5xl md:text-6xl">
+          Mold Inspection Services
+        </h1>
+
+        <p className="mt-6 max-w-3xl text-lg leading-8 text-slate-600">
+          Detailed mold inspection services designed to identify hidden mold,
+          moisture problems, and potential indoor air quality risks.
+        </p>
+      </div>
+    </main>
+  );
+}

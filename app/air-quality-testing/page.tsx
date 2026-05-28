@@ -22,23 +22,23 @@ export const metadata: Metadata = {
 };
 
 export default function AirQualityTestingPage() {
-    return (
-      <main className="min-h-screen bg-[#06164A] text-white">
-        <SiteNav />
-        <div className="mx-auto max-w-7xl px-6 pb-20 pt-32 md:px-16">
-          <p className="mb-4 text-sm uppercase tracking-[0.3em] text-[#94D62D]">
-            BPI Mold Solutions
-          </p>
-  
-          <h1 className="text-4xl font-bold leading-tight sm:text-5xl md:text-7xl">
-            Air Quality Testing
-          </h1>
-  
-          <p className="mt-6 max-w-3xl text-base leading-7 text-white/70 sm:text-lg sm:leading-8">
-            Professional air quality testing services to help detect mold spores,
-            moisture-related issues, and indoor air safety concerns.
-          </p>
-        </div>
-      </main>
-    );
-  }
+  return (
+    <main className="min-h-screen bg-white text-[#0F172A]">
+      <SiteNav />
+      <div className="mx-auto max-w-7xl px-6 pb-24 pt-32 md:px-16 md:pb-28 md:pt-36">
+        <p className="mb-4 text-sm font-semibold uppercase tracking-[0.3em] text-[#445A2A]">
+          BPI Mold Solutions
+        </p>
+
+        <h1 className="text-4xl font-bold leading-tight tracking-tight sm:text-5xl md:text-6xl">
+          Air Quality Testing
+        </h1>
+
+        <p className="mt-6 max-w-3xl text-lg leading-8 text-slate-600">
+          Professional air quality testing services to help detect mold spores,
+          moisture-related issues, and indoor air safety concerns.
+        </p>
+      </div>
+    </main>
+  );
+}
