@@ -13,12 +13,11 @@ export function SiteNav({ variant = "light" }: SiteNavProps) {
           : "fixed left-0 top-0 z-50 w-full border-b border-slate-200/80 bg-white/90 shadow-sm shadow-slate-200/40 backdrop-blur-xl"
       }
     >
-      <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4 md:px-16 md:py-5">
-        <a href="/" className="shrink-0">
+<div className="mx-auto flex h-32 max-w-7xl items-center justify-between px-6 md:px-16">        <a href="/" className="shrink-0">
           <img
             src="/images/logo.png"
             alt="BPI Mold Solutions"
-            className="h-12 w-auto md:h-14"
+      className="h-24 w-auto md:h-28"
           />
         </a>
 
@@ -43,6 +42,14 @@ export function SiteNav({ variant = "light" }: SiteNavProps) {
           >
             Services
           </a>
+          <a
+  href="/guarantee"
+  className={`font-medium transition ${
+    isHero ? "hover:text-white" : "hover:text-[#0F172A]"
+  }`}
+>
+  Guarantee
+</a>
           <a
             href="/about"
             className={`font-medium transition ${
@@ -103,6 +110,7 @@ export function SiteNav({ variant = "light" }: SiteNavProps) {
                 { href: "/", label: "Home" },
                 { href: "/services", label: "Services" },
                 { href: "/about", label: "About" },
+                { href: "/guarantee", label: "Guarantee" },
                 { href: "/contact", label: "Contact" },
               ].map((link) => (
                 <a

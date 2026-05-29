@@ -287,7 +287,69 @@ export default function Home() {
           </div>
         </div>
       </section>
+      {/* Licensed & Certified */}
+      <section className="bg-white px-6 py-24 md:px-16">
+  <div className="mx-auto max-w-7xl">
+    <div className="text-center">
+      <p className="mb-4 text-sm uppercase tracking-[0.3em] text-[#94D62D]">
+        Licensed & Certified
+      </p>
 
+      <h2 className="text-4xl font-bold text-[#0F172A] md:text-5xl">
+        Credentials You Can Trust
+      </h2>
+
+      <p className="mx-auto mt-6 max-w-3xl text-lg leading-8 text-slate-600">
+        BPI Mold Solutions maintains professional licensing and certifications
+        to provide safe and reliable mold remediation services.
+      </p>
+    </div>
+
+    <div className="mt-16 grid gap-8 md:grid-cols-3">
+      <div className="overflow-hidden rounded-3xl border border-slate-200 bg-white shadow-sm">
+        <img
+          src="/licenses/license-1.jpg"
+          alt="Mold Remediation License"
+          className="h-[320px] w-full object-cover"
+        />
+
+        <div className="p-6">
+          <h3 className="text-xl font-semibold text-[#0F172A]">
+            Mold Remediation License
+          </h3>
+        </div>
+      </div>
+
+      <div className="overflow-hidden rounded-3xl border border-slate-200 bg-white shadow-sm">
+        <img
+          src="/licenses/license-2.jpg"
+          alt="Certification"
+          className="h-[320px] w-full object-cover"
+        />
+
+        <div className="p-6">
+          <h3 className="text-xl font-semibold text-[#0F172A]">
+            Professional Certification
+          </h3>
+        </div>
+      </div>
+
+      <div className="overflow-hidden rounded-3xl border border-slate-200 bg-white shadow-sm">
+        <img
+          src="/licenses/license-3.jpg"
+          alt="Insurance Documentation"
+          className="h-[320px] w-full object-cover"
+        />
+
+        <div className="p-6">
+          <h3 className="text-xl font-semibold text-[#0F172A]">
+            Insurance & Compliance
+          </h3>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
       {/* Why Choose — light gray */}
       <section
         id="about"
