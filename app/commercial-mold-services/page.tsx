@@ -4,17 +4,16 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "Commercial Mold Services NY | Offices & Buildings",
   description:
-    "Commercial mold inspection and remediation for offices, multi-family buildings, property managers, and business properties across New York City, Staten Island, Brooklyn, Queens, Manhattan, Bronx, Long Island, and New York State.",
+    "Commercial mold remediation for offices, multi-family buildings, property managers, and business properties across New York City, Staten Island, Brooklyn, Queens, Manhattan, Bronx, Long Island, and New York State.",
   keywords: [
     "commercial mold services",
     "commercial mold remediation New York",
-    "commercial mold inspection NYC",
     "building mold removal",
     "office mold remediation",
     "mold remediation for property managers",
     "Brooklyn commercial mold services",
     "Queens commercial mold remediation",
-    "Manhattan commercial mold inspection",
+    "Manhattan commercial mold remediation",
     "Bronx commercial mold removal",
     "Staten Island commercial mold services",
     "Long Island commercial mold remediation",
@@ -47,7 +46,7 @@ export default function CommercialMoldServicesPage() {
     <main className="min-h-screen bg-white text-[#0F172A]">
       <SiteNav />
 
-      <section className="mx-auto grid max-w-7xl gap-12 px-6 pb-20 pt-32 md:grid-cols-2 md:px-16 md:pt-40">
+      <section className="page-top-offset mx-auto grid max-w-7xl gap-12 px-6 pb-20 md:grid-cols-2 md:px-16">
         <div>
           <p className="mb-4 text-sm font-semibold uppercase tracking-[0.3em] text-[#445A2A]">
             BPI Mold Solutions
@@ -58,18 +57,17 @@ export default function CommercialMoldServicesPage() {
           </h1>
 
           <p className="mt-6 text-lg leading-8 text-slate-600">
-            Professional commercial mold inspection, mold remediation, moisture
-            investigation, and indoor air quality services for office buildings,
-            apartment complexes, retail properties, healthcare facilities,
-            schools, warehouses, and commercial properties throughout New York
-            State.
+            Professional commercial mold remediation, moisture investigation,
+            and indoor air quality services for office buildings, apartment
+            complexes, retail properties, healthcare facilities, schools,
+            warehouses, and commercial properties throughout New York State.
           </p>
 
           <a
             href="/contact"
             className="mt-8 inline-block rounded-full bg-[#94D62D] px-8 py-4 font-semibold text-[#06164A] transition hover:bg-[#445A2A] hover:text-white"
           >
-            Schedule Commercial Inspection
+            Request Consultation
           </a>
         </div>
 
@@ -85,15 +83,14 @@ export default function CommercialMoldServicesPage() {
       <section className="bg-[#F8FAFC] px-6 py-20 md:px-16">
         <div className="mx-auto max-w-7xl">
           <h2 className="text-3xl font-bold md:text-4xl">
-            Commercial Mold Inspection & Remediation Services
+            Commercial Mold Remediation Services
           </h2>
 
           <p className="mt-6 max-w-4xl text-lg leading-8 text-slate-600">
-            BPI Mold Solutions provides commercial mold inspection, commercial
-            mold remediation, mold testing, containment, moisture
-            investigations, and indoor air quality solutions for businesses,
-            landlords, property managers, and commercial property owners
-            throughout New York.
+            BPI Mold Solutions provides commercial mold remediation, mold testing,
+            containment, moisture investigations, and indoor air quality solutions
+            for businesses, landlords, property managers, and commercial property
+            owners throughout New York.
           </p>
         </div>
       </section>
@@ -205,7 +202,7 @@ export default function CommercialMoldServicesPage() {
               },
               {
                 q: "Can mold affect employees and tenants?",
-                a: "Mold growth may impact indoor air quality and workplace comfort, which is why early inspection is important.",
+                a: "Mold growth may impact indoor air quality and workplace comfort, which is why early assessment is important.",
               },
               {
                 q: "Do you provide emergency commercial mold services?",
@@ -232,7 +229,7 @@ export default function CommercialMoldServicesPage() {
 
           <p className="mx-auto mt-6 max-w-3xl text-lg leading-8 text-white/70">
             Contact BPI Mold Solutions today to schedule a commercial mold
-            inspection or remediation consultation.
+            remediation consultation.
           </p>
 
           <p className="mt-8 text-2xl font-semibold">+1 917-945-6451</p>
@@ -243,7 +240,7 @@ export default function CommercialMoldServicesPage() {
             href="/contact"
             className="mt-8 inline-block rounded-full bg-[#94D62D] px-8 py-4 font-semibold text-[#06164A] transition hover:bg-white"
           >
-            Schedule Inspection
+            Contact Us
           </a>
         </div>
       </section>

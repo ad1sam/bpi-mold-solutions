@@ -3,29 +3,28 @@ import {
   ShieldCheck,
   Building2,
   Siren,
-  Search,
   Wind,
   Droplets,
 } from "lucide-react";
 import { SiteNav } from "./components/SiteNav";
+import { HeroLeadForm } from "./components/HeroLeadForm";
+import { PHONE_DISPLAY, PHONE_HREF } from "./lib/site";
 
 export const metadata: Metadata = {
-  title: "Mold Inspection & Removal in New York | BPI Mold Solutions",
+  title: "Mold Removal & Remediation in New York | BPI Mold Solutions",
   description:
-    "Professional mold inspection, mold removal, remediation, air quality testing, and emergency mold services across New York State including Brooklyn, Queens, Manhattan, Bronx, Staten Island, and Long Island.",
+    "Professional mold removal, remediation, air quality testing, and emergency mold services across New York State including Brooklyn, Queens, Manhattan, Bronx, Staten Island, and Long Island.",
   keywords: [
-    "mold inspection New York",
     "mold removal NY",
     "mold remediation NYC",
     "air quality testing New York",
     "emergency mold services",
     "commercial mold services",
-    "mold testing",
     "Brooklyn mold removal",
-    "Queens mold inspection",
+    "Queens mold removal",
     "Manhattan mold remediation",
     "Bronx mold services",
-    "Staten Island mold inspection",
+    "Staten Island mold removal",
     "Long Island mold removal",
   ],
 };
@@ -47,11 +46,6 @@ const services = [
     icon: <Siren className="h-7 w-7 text-[#445A2A]" />,
   },
   {
-    title: "Mold Inspection",
-    href: "/mold-inspection",
-    icon: <Search className="h-7 w-7 text-[#445A2A]" />,
-  },
-  {
     title: "Air Quality Testing",
     href: "/air-quality-testing",
     icon: <Wind className="h-7 w-7 text-[#445A2A]" />,
@@ -67,7 +61,7 @@ const whyChoose = [
   {
     title: "Advanced Mold Detection",
     description:
-      "We use modern inspection methods and advanced moisture detection technology to identify hidden mold problems quickly and accurately.",
+      "We use advanced moisture detection technology and proven remediation methods to identify hidden mold problems quickly and accurately.",
   },
   {
     title: "Safe & Professional Remediation",
@@ -86,56 +80,48 @@ export default function Home() {
     <main className="min-h-screen scroll-smooth bg-white text-[#0F172A]">
       <SiteNav variant="hero" />
 
-      {/* Hero — dark navy overlay only here */}
+      {/* Hero */}
       <section
         id="home"
-        className="relative flex min-h-[100svh] items-center overflow-hidden bg-[#06164A] px-6 pt-28 sm:pt-32 md:px-16 md:pt-36"
+        className="relative overflow-hidden bg-[#06164A] px-4 pb-20 pt-28 sm:px-6 sm:pt-32 md:px-12 lg:pb-24 lg:pt-36"
       >
         <div className="absolute inset-0">
           <img
             src="/images/hero-1.png"
-            alt="Mold Inspection"
+            alt="BPI Mold Solutions technicians performing mold remediation in a home"
             className="h-full w-full object-cover"
           />
         </div>
 
-        <div className="absolute inset-0 bg-[#06164A]/55" />
-        <div className="absolute inset-0 bg-gradient-to-r from-[#06164A]/90 via-[#06164A]/70 to-[#06164A]/25" />
-        <div className="absolute inset-0 bg-gradient-to-t from-[#06164A]/60 via-transparent to-transparent" />
+        <div className="absolute inset-0 bg-[#06164A]/75" />
+        <div className="absolute inset-0 bg-gradient-to-r from-[#06164A]/90 to-[#06164A]/50" />
 
-        <div className="absolute right-[-120px] top-[100px] h-[380px] w-[380px] rounded-full bg-[#94D62D]/15 blur-3xl" />
-        <div className="absolute bottom-[-100px] left-[15%] h-[320px] w-[320px] rounded-full bg-[#445A2A]/20 blur-3xl" />
+        <div className="relative z-10 mx-auto w-full max-w-6xl">
+          <div className="grid items-center gap-10 lg:grid-cols-2 lg:gap-16">
+            <div>
+              <p className="text-sm font-medium text-[#94D62D]">
+                ★★★★★ 4.9 · 500+ customers served
+              </p>
 
-        <div className="relative z-10 mx-auto w-full max-w-7xl animate-fade-up">
-          <div className="max-w-3xl">
-            <p className="mb-6 inline-flex items-center gap-2 rounded-full border border-[#94D62D]/30 bg-[#94D62D]/10 px-4 py-2 text-xs font-semibold uppercase tracking-[0.25em] text-[#94D62D] sm:text-sm">
-              Mold Inspection • Removal • Clean Air
-            </p>
+              <h1 className="mt-4 text-3xl font-bold leading-tight tracking-tight text-white sm:text-4xl lg:text-5xl">
+                Professional Mold Removal &amp; Remediation
+              </h1>
 
-            <h1 className="text-4xl font-bold leading-[1.08] tracking-tight text-white sm:text-5xl md:text-6xl lg:text-7xl">
-              Protect Your Home From Hidden Mold.
-            </h1>
+              <p className="mt-4 max-w-lg text-base leading-relaxed text-white/80 sm:text-lg">
+                Fast, safe, certified mold removal for homes and businesses
+                across New York. Free estimates — no obligation.
+              </p>
 
-            <p className="mt-8 max-w-2xl text-lg leading-8 text-white/85 sm:text-xl">
-              Premium mold inspection and remediation services designed to protect
-              your property, improve indoor air quality, and make your home feel
-              safe again.
-            </p>
-
-            <div className="mt-10 flex flex-col gap-4 sm:flex-row sm:items-center">
               <a
-                href="/contact"
-                className="rounded-full bg-[#94D62D] px-9 py-4 text-center text-base font-semibold text-[#06164A] shadow-xl shadow-[#94D62D]/30 transition hover:-translate-y-0.5 hover:bg-white hover:shadow-white/20"
+                href={PHONE_HREF}
+                className="mt-8 inline-flex items-center gap-2 text-white transition hover:text-[#94D62D] lg:hidden"
               >
-                Schedule Inspection
-              </a>
-              <a
-                href="/services"
-                className="rounded-full border-2 border-white/30 bg-white/10 px-9 py-4 text-center text-base font-semibold text-white backdrop-blur-sm transition hover:-translate-y-0.5 hover:border-white hover:bg-white/20"
-              >
-                View Services
+                <span className="text-sm text-white/60">Need help now?</span>
+                <span className="font-semibold">{PHONE_DISPLAY}</span>
               </a>
             </div>
+
+            <HeroLeadForm />
           </div>
         </div>
       </section>
@@ -156,7 +142,7 @@ export default function Home() {
             </h2>
 
             <p className="mt-6 text-lg leading-8 text-slate-600">
-              Advanced inspection and remediation services designed to protect your
+              Advanced remediation services designed to protect your
               home, business, and indoor air quality.
             </p>
           </div>
@@ -276,7 +262,7 @@ export default function Home() {
               href="/contact"
               className="rounded-full bg-[#445A2A] px-9 py-4 text-center font-semibold text-white shadow-lg shadow-[#445A2A]/25 transition hover:-translate-y-0.5 hover:bg-[#06164A]"
             >
-              Get A Mold Inspection
+              Request a Quote
             </a>
             <a
               href="/services"
@@ -366,7 +352,7 @@ export default function Home() {
             </h2>
 
             <p className="mt-6 text-lg leading-8 text-slate-600">
-              BPI Mold Solutions provides professional mold inspection, mold testing,
+              BPI Mold Solutions provides professional mold removal, mold testing,
               mold remediation, emergency mold services, and air quality solutions
               for residential and commercial properties throughout New York,
               including Brooklyn, Manhattan, Queens, the Bronx, Long Island, and
@@ -410,12 +396,12 @@ export default function Home() {
               </p>
 
               <h2 className="text-3xl font-bold leading-tight tracking-tight text-[#06164A] sm:text-4xl md:text-5xl">
-                Schedule Your Mold Inspection Today.
+                Schedule Your Mold Remediation Today.
               </h2>
 
               <p className="mt-6 max-w-xl text-lg leading-8 text-[#06164A]/80">
-                BPI Mold Solutions provides trusted mold inspection, mold removal,
-                remediation, air quality testing, and emergency mold services across
+                BPI Mold Solutions provides trusted mold removal, remediation,
+                air quality testing, and emergency mold services across
                 New York State, including Brooklyn, Manhattan, Queens, the Bronx,
                 Long Island, and surrounding areas.
               </p>
@@ -423,10 +409,10 @@ export default function Home() {
 
             <div className="flex flex-col gap-5">
               <a
-                href="tel:+17186890871"
+                href={PHONE_HREF}
                 className="rounded-2xl bg-[#06164A] px-8 py-5 text-center text-lg font-semibold text-white shadow-xl transition hover:-translate-y-0.5 hover:bg-white hover:text-[#06164A]"
               >
-                Book Inspection
+                Call Now
               </a>
 
               <div className="rounded-2xl border border-[#06164A]/10 bg-white/90 p-6 shadow-lg backdrop-blur-sm sm:p-8">
@@ -447,10 +433,10 @@ export default function Home() {
                   <div>
                     <p className="font-semibold text-[#0F172A]">Telephone</p>
                     <a
-                      href="tel:+17186890871"
+                      href={PHONE_HREF}
                       className="mt-2 inline-block font-medium text-[#445A2A] hover:text-[#06164A]"
                     >
-                      +1 718-689-0871
+                      {PHONE_DISPLAY}
                     </a>
                   </div>
 
@@ -481,9 +467,9 @@ export default function Home() {
             </a>
 
             <p className="mt-6 max-w-lg leading-8 text-white/60">
-              BPI Mold Solutions provides professional mold inspection, mold testing,
-              mold removal, remediation, air quality testing, and emergency mold
-              services throughout New York State.
+              BPI Mold Solutions provides professional mold removal, remediation,
+              air quality testing, and emergency mold services throughout New York
+              State.
             </p>
           </div>
 
@@ -512,9 +498,6 @@ export default function Home() {
             <div className="flex flex-col gap-4 text-white/60">
               <a href="/mold-removal" className="transition hover:text-[#94D62D]">
                 Mold Removal
-              </a>
-              <a href="/mold-inspection" className="transition hover:text-[#94D62D]">
-                Mold Inspection
               </a>
               <a
                 href="/air-quality-testing"

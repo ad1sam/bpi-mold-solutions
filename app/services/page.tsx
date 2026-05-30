@@ -4,10 +4,9 @@ import { SiteNav } from "../components/SiteNav";
 export const metadata: Metadata = {
   title: "Mold Services in New York | BPI Mold Solutions",
   description:
-    "Professional mold inspection, mold removal, mold remediation, air quality testing, emergency mold services, commercial mold services, and water damage prevention across Staten Island, Brooklyn, Queens, Manhattan, Bronx, Long Island, and New York State.",
+    "Professional mold removal, mold remediation, air quality testing, emergency mold services, commercial mold services, and water damage prevention across Staten Island, Brooklyn, Queens, Manhattan, Bronx, Long Island, and New York State.",
   keywords: [
     "mold services New York",
-    "mold inspection New York",
     "mold removal New York",
     "mold remediation New York",
     "air quality testing New York",
@@ -16,7 +15,7 @@ export const metadata: Metadata = {
     "water damage mold prevention",
     "Staten Island mold removal",
     "Brooklyn mold remediation",
-    "Queens mold inspection",
+    "Queens mold removal",
     "Manhattan mold services",
     "Bronx mold removal",
     "Long Island mold remediation",
@@ -34,19 +33,13 @@ const services = [
     title: "Commercial Mold Services",
     href: "/commercial-mold-services",
     description:
-      "Mold inspection and remediation solutions for offices, buildings, rental properties, commercial spaces, and business facilities.",
+      "Mold remediation solutions for offices, buildings, rental properties, commercial spaces, and business facilities.",
   },
   {
     title: "Emergency Mold Services",
     href: "/emergency-mold-services",
     description:
       "Fast response services for urgent mold concerns, water damage events, moisture problems, and active mold growth.",
-  },
-  {
-    title: "Mold Inspection",
-    href: "/mold-inspection",
-    description:
-      "Detailed mold inspections to identify hidden mold, moisture sources, water intrusion, and indoor air quality concerns.",
   },
   {
     title: "Air Quality Testing",
@@ -77,7 +70,7 @@ export default function ServicesPage() {
     <main className="min-h-screen bg-white text-[#0F172A]">
       <SiteNav />
 
-      <section className="mx-auto max-w-7xl px-6 pb-20 pt-32 md:px-16 md:pt-40">
+      <section className="page-top-offset mx-auto max-w-7xl px-6 pb-20 md:px-16">
         <p className="mb-4 text-sm font-semibold uppercase tracking-[0.3em] text-[#445A2A]">
           BPI Mold Solutions
         </p>
@@ -87,17 +80,17 @@ export default function ServicesPage() {
         </h1>
 
         <p className="mt-6 max-w-4xl text-lg leading-8 text-slate-600">
-          BPI Mold Solutions provides professional mold inspection, mold removal,
-          mold remediation, emergency mold services, commercial mold solutions,
-          air quality testing, and water damage prevention across Staten Island,
-          Brooklyn, Queens, Manhattan, Bronx, Long Island, and New York State.
+          BPI Mold Solutions provides professional mold removal, mold remediation,
+          emergency mold services, commercial mold solutions, air quality testing,
+          and water damage prevention across Staten Island, Brooklyn, Queens,
+          Manhattan, Bronx, Long Island, and New York State.
         </p>
       </section>
 
       <section className="bg-[#F8FAFC] px-6 py-20 md:px-16">
         <div className="mx-auto max-w-7xl">
           <h2 className="text-3xl font-bold md:text-4xl">
-            Our Mold Inspection & Remediation Services
+            Our Mold Remediation Services
           </h2>
 
           <p className="mt-5 max-w-3xl text-lg leading-8 text-slate-600">
@@ -188,16 +181,12 @@ export default function ServicesPage() {
                 a: "Mold removal focuses on removing visible mold, while mold remediation includes containment, cleaning, moisture source evaluation, and prevention steps designed to reduce future mold growth.",
               },
               {
-                q: "Do I need a mold inspection before remediation?",
-                a: "A professional mold inspection helps identify affected areas, hidden moisture, and the source of the mold problem before remediation begins.",
-              },
-              {
                 q: "Do you provide emergency mold services?",
                 a: "Yes. BPI Mold Solutions provides fast response services for urgent mold concerns, water damage events, and active moisture problems.",
               },
               {
                 q: "Do you work with commercial properties?",
-                a: "Yes. We provide mold inspection and remediation services for commercial buildings, offices, rental properties, and business spaces.",
+                a: "Yes. We provide mold remediation services for commercial buildings, offices, rental properties, and business spaces.",
               },
             ].map((item) => (
               <div

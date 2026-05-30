@@ -9,13 +9,13 @@ export const metadata: Metadata = {
     "emergency mold services",
     "24/7 mold removal",
     "urgent mold remediation",
-    "same day mold inspection",
+    "same day mold remediation",
     "water damage mold prevention",
     "NYC emergency mold services",
     "Brooklyn emergency mold removal",
     "Queens emergency mold services",
     "Manhattan emergency mold remediation",
-    "Bronx emergency mold inspection",
+    "Bronx emergency mold removal",
     "Staten Island emergency mold services",
     "Long Island emergency mold removal",
   ],
@@ -25,7 +25,7 @@ export default function EmergencyMoldServicesPage() {
   return (
     <main className="min-h-screen bg-white text-[#0F172A]">
       <SiteNav />
-      <div className="mx-auto max-w-7xl px-6 pb-24 pt-32 md:px-16 md:pb-28 md:pt-36">
+      <div className="mx-auto max-w-7xl px-6 pb-24 page-top-offset">
         <p className="mb-4 text-sm font-semibold uppercase tracking-[0.3em] text-[#445A2A]">
           BPI Mold Solutions
         </p>

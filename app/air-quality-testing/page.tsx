@@ -23,7 +23,7 @@ export const metadata: Metadata = {
 const benefits = [
   "Detect possible airborne mold spores",
   "Identify indoor air quality concerns",
-  "Support mold inspection and remediation planning",
+  "Support mold remediation planning",
   "Help protect homes, families, tenants, and employees",
 ];
 
@@ -42,7 +42,7 @@ export default function AirQualityTestingPage() {
     <main className="min-h-screen bg-white text-[#0F172A]">
       <SiteNav />
 
-      <section className="mx-auto grid max-w-7xl gap-12 px-6 pb-20 pt-32 md:grid-cols-2 md:px-16 md:pt-40">
+      <section className="page-top-offset mx-auto grid max-w-7xl gap-12 px-6 pb-20 md:grid-cols-2 md:px-16">
         <div>
           <p className="mb-4 text-sm font-semibold uppercase tracking-[0.3em] text-[#445A2A]">
             BPI Mold Solutions
@@ -139,8 +139,8 @@ export default function AirQualityTestingPage() {
           </h2>
 
           <p className="mt-5 max-w-3xl text-lg leading-8 text-slate-600">
-            We provide indoor air quality testing and mold-related air
-            inspections across New York State.
+            We provide indoor air quality testing and mold-related air quality
+            services across New York State.
           </p>
 
           <div className="mt-10 flex flex-wrap gap-4">

@@ -25,7 +25,7 @@ export default function WaterDamagePreventionPage() {
   return (
     <main className="min-h-screen bg-white text-[#0F172A]">
       <SiteNav />
-      <div className="mx-auto max-w-7xl px-6 pb-24 pt-32 md:px-16 md:pb-28 md:pt-36">
+      <div className="mx-auto max-w-7xl px-6 pb-24 page-top-offset">
         <p className="mb-4 text-sm font-semibold uppercase tracking-[0.3em] text-[#445A2A]">
           BPI Mold Solutions
         </p>

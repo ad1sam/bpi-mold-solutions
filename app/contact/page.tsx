@@ -2,22 +2,20 @@ import { SiteNav } from "../components/SiteNav";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Schedule a Mold Inspection | Contact BPI Mold Solutions NY",
+  title: "Contact BPI Mold Solutions | Mold Remediation in New York",
   description:
-    "Contact BPI Mold Solutions to book a mold inspection or request mold removal, remediation, air quality testing, or emergency mold services across New York City and Long Island.",
+    "Contact BPI Mold Solutions to request mold removal, remediation, air quality testing, or emergency mold services across New York City and Long Island.",
   keywords: [
-    "schedule mold inspection",
-    "mold inspection appointment",
     "contact mold removal company",
     "mold remediation quote",
     "emergency mold help",
     "air quality testing appointment",
     "NYC mold services",
-    "Brooklyn mold inspection",
+    "Brooklyn mold removal",
     "Queens mold removal",
     "Manhattan mold remediation",
     "Bronx emergency mold services",
-    "Staten Island mold inspection",
+    "Staten Island mold removal",
     "Long Island mold services",
   ],
 };
@@ -26,7 +24,7 @@ export default function ContactPage() {
   return (
     <main className="min-h-screen bg-[#F8FAFC] text-[#0F172A]">
       <SiteNav />
-      <div className="mx-auto max-w-7xl px-6 pb-24 pt-32 md:px-16 md:pb-28 md:pt-36">
+      <div className="mx-auto max-w-7xl px-6 pb-24 page-top-offset">
         <p className="mb-4 text-sm font-semibold uppercase tracking-[0.3em] text-[#445A2A]">
           BPI Mold Solutions
         </p>
@@ -36,9 +34,8 @@ export default function ContactPage() {
         </h1>
 
         <p className="mt-6 max-w-3xl text-lg leading-8 text-slate-600">
-          Contact BPI Mold Solutions for professional mold inspection,
-          remediation, air quality testing, and emergency mold services across
-          New York State.
+          Contact BPI Mold Solutions for professional mold removal, remediation,
+          air quality testing, and emergency mold services across New York State.
         </p>
 
         <div className="mt-16 grid gap-8 md:grid-cols-2">
@@ -84,7 +81,7 @@ export default function ContactPage() {
 
           <div className="rounded-3xl border border-slate-200/80 bg-white p-8 shadow-sm shadow-slate-200/50 sm:p-10">
             <h2 className="text-2xl font-semibold text-[#0F172A]">
-              Schedule Inspection
+              Send a Message
             </h2>
 
             <form className="mt-8 space-y-5">

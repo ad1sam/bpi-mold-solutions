@@ -4,11 +4,11 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "About BPI Mold Solutions | Mold Remediation in New York",
   description:
-    "Learn about BPI Mold Solutions, a professional mold inspection, mold removal, remediation, and air quality testing company serving Staten Island, Brooklyn, Queens, Manhattan, Bronx, Long Island, and New York State.",
+    "Learn about BPI Mold Solutions, a professional mold removal, remediation, and air quality testing company serving Staten Island, Brooklyn, Queens, Manhattan, Bronx, Long Island, and New York State.",
 };
 
 const values = [
-  "Professional mold inspection",
+  "Professional mold remediation",
   "Safe remediation process",
   "Fast response times",
   "Indoor air quality focus",
@@ -31,35 +31,34 @@ export default function AboutPage() {
     <main className="min-h-screen bg-white text-[#0F172A]">
       <SiteNav />
 
-      <section className="mx-auto grid max-w-7xl gap-12 px-6 pb-20 pt-32 md:grid-cols-2 md:px-16 md:pt-40">
+      <section className="page-top-offset mx-auto grid max-w-7xl gap-12 px-6 pb-20 md:grid-cols-2 md:px-16">
         <div>
           <p className="mb-4 text-sm font-semibold uppercase tracking-[0.3em] text-[#445A2A]">
             About BPI Mold Solutions
           </p>
 
           <h1 className="text-4xl font-bold leading-tight tracking-tight sm:text-5xl md:text-6xl">
-            Trusted Mold Inspection & Remediation Experts in New York
+            Trusted Mold Remediation Experts in New York
           </h1>
 
           <p className="mt-6 text-lg leading-8 text-slate-600">
-            BPI Mold Solutions provides professional mold inspection, mold
-            removal, remediation, air quality testing, emergency mold services,
-            and moisture prevention solutions for homes and commercial
-            properties across New York State.
+            BPI Mold Solutions provides professional mold removal, remediation,
+            air quality testing, emergency mold services, and moisture prevention
+            solutions for homes and commercial properties across New York State.
           </p>
 
           <a
             href="/contact"
             className="mt-8 inline-block rounded-full bg-[#94D62D] px-8 py-4 font-semibold text-[#06164A] transition hover:bg-[#445A2A] hover:text-white"
           >
-            Schedule Inspection
+            Contact Us
           </a>
         </div>
 
         <div className="overflow-hidden rounded-[2rem] shadow-xl">
           <img
             src="/images/about-bpi-mold-solutions.jpg"
-            alt="BPI Mold Solutions mold inspection and remediation team in New York"
+            alt="BPI Mold Solutions mold remediation team in New York"
             className="h-full min-h-[430px] w-full object-cover"
           />
         </div>
@@ -119,7 +118,7 @@ export default function AboutPage() {
             We understand that mold issues can feel stressful for homeowners,
             tenants, landlords, and business owners. That is why our process is
             designed to be clear, professional, and solution-focused from the
-            first inspection to the final recommendation.
+            first assessment to the final recommendation.
           </p>
         </div>
       </section>
@@ -151,12 +150,12 @@ export default function AboutPage() {
       <section className="bg-[#06164A] px-6 py-20 text-white md:px-16">
         <div className="mx-auto max-w-5xl text-center">
           <h2 className="text-4xl font-bold">
-            Need Mold Inspection or Remediation?
+            Need Mold Remediation?
           </h2>
 
           <p className="mx-auto mt-6 max-w-3xl text-lg leading-8 text-white/70">
             Contact BPI Mold Solutions today to schedule professional mold
-            inspection, removal, remediation, or air quality testing.
+            removal, remediation, or air quality testing.
           </p>
 
           <p className="mt-8 text-2xl font-semibold">+1 917-945-6451</p>

@@ -9,8 +9,9 @@ export const metadata = {
   export default function GuaranteePage() {
     return (
       <main className="min-h-screen bg-white">
+        <SiteNav />
         {/* HERO */}
-        <section className="bg-[#06164A] px-6 py-32 text-white md:px-16">
+        <section className="page-top-offset bg-[#06164A] px-6 py-32 text-white md:px-16">
           <div className="mx-auto max-w-6xl">
             <p className="mb-4 text-sm uppercase tracking-[0.3em] text-[#94D62D]">
               BPI Mold Solutions
@@ -31,7 +32,7 @@ export const metadata = {
                 href="/contact"
                 className="rounded-2xl bg-[#94D62D] px-8 py-5 font-semibold text-[#06164A] transition hover:bg-white"
               >
-                Schedule Inspection
+                Contact Us
               </a>
             </div>
           </div>
@@ -46,8 +47,7 @@ export const metadata = {
   
             <p className="mt-8 text-lg leading-9 text-slate-600">
               BPI Mold Solutions takes pride in providing professional mold
-              inspection, remediation, and prevention services throughout New York
-              State. Our guarantee reflects our confidence in our remediation
+              remediation and prevention services throughout New York State. Our guarantee reflects our confidence in our remediation
               process and our commitment to customer satisfaction.
             </p>
   
@@ -201,12 +201,12 @@ export const metadata = {
         <section className="bg-[#06164A] px-6 py-24 text-white md:px-16">
           <div className="mx-auto max-w-5xl text-center">
             <h2 className="text-4xl font-bold md:text-6xl">
-              Need Mold Inspection Or Remediation?
+              Need Mold Remediation?
             </h2>
   
             <p className="mx-auto mt-8 max-w-3xl text-lg leading-9 text-white/75">
-              Contact BPI Mold Solutions today to schedule an inspection and learn
-              how we can help protect your property and indoor air quality.
+              Contact BPI Mold Solutions today to learn how we can help protect
+              your property and indoor air quality.
             </p>
   
             <div className="mt-12 space-y-3">

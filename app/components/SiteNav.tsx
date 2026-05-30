@@ -1,142 +1,138 @@
+import { Phone } from "lucide-react";
+import { TrustBadges } from "./TrustBadges";
+import { PHONE_DISPLAY, PHONE_HREF } from "../lib/site";
+
 type SiteNavProps = {
   variant?: "hero" | "light";
+  showTrustBadges?: boolean;
 };
 
-export function SiteNav({ variant = "light" }: SiteNavProps) {
+const navLinks = [
+  { href: "/services", label: "Services" },
+  { href: "/guarantee", label: "Guarantee" },
+  { href: "/about", label: "About" },
+  { href: "/contact", label: "Contact" },
+];
+
+export function SiteNav({
+  variant = "light",
+  showTrustBadges = true,
+}: SiteNavProps) {
   const isHero = variant === "hero";
 
   return (
-    <nav
-      className={
-        isHero
-          ? "fixed left-0 top-0 z-50 w-full border-b border-white/10 bg-[#06164A]/75 backdrop-blur-xl"
-          : "fixed left-0 top-0 z-50 w-full border-b border-slate-200/80 bg-white/90 shadow-sm shadow-slate-200/40 backdrop-blur-xl"
-      }
-    >
-<div className="mx-auto flex h-32 max-w-7xl items-center justify-between px-6 md:px-16">        <a href="/" className="shrink-0">
-          <img
-            src="/images/logo.png"
-            alt="BPI Mold Solutions"
-      className="h-24 w-auto md:h-28"
-          />
-        </a>
-
-        <div
-          className={`hidden items-center gap-8 text-sm md:flex ${
-            isHero ? "text-white/80" : "text-slate-600"
-          }`}
-        >
-          <a
-            href="/"
-            className={`font-medium transition ${
-              isHero ? "hover:text-white" : "hover:text-[#0F172A]"
-            }`}
-          >
-            Home
+    <header className="fixed left-0 top-0 z-50 w-full">
+      <nav
+        className={
+          isHero
+            ? "border-b border-white/10 bg-[#06164A]/95 backdrop-blur-md"
+            : "border-b border-slate-100 bg-white/95 backdrop-blur-md"
+        }
+        aria-label="Main navigation"
+      >
+        <div className="mx-auto flex h-16 max-w-7xl items-center justify-between gap-4 px-4 sm:px-6 lg:px-8">
+          <a href="/" className="shrink-0">
+            <img
+              src="/images/logo.png"
+              alt="BPI Mold Solutions"
+              className="h-9 w-auto sm:h-10"
+            />
           </a>
-          <a
-            href="/services"
-            className={`font-medium transition ${
-              isHero ? "hover:text-white" : "hover:text-[#0F172A]"
-            }`}
-          >
-            Services
-          </a>
-          <a
-  href="/guarantee"
-  className={`font-medium transition ${
-    isHero ? "hover:text-white" : "hover:text-[#0F172A]"
-  }`}
->
-  Guarantee
-</a>
-          <a
-            href="/about"
-            className={`font-medium transition ${
-              isHero ? "hover:text-white" : "hover:text-[#0F172A]"
-            }`}
-          >
-            About
-          </a>
-          <a
-            href="/contact"
-            className={`font-medium transition ${
-              isHero ? "hover:text-white" : "hover:text-[#0F172A]"
-            }`}
-          >
-            Contact
-          </a>
-          <a
-            href="/contact"
-            className="rounded-full bg-[#94D62D] px-5 py-3 font-semibold text-[#06164A] shadow-lg shadow-[#94D62D]/25 transition hover:-translate-y-0.5 hover:bg-[#445A2A] hover:text-white hover:shadow-[#445A2A]/30"
-          >
-            Get Inspection
-          </a>
-        </div>
-
-        <details className="group relative md:hidden">
-          <summary
-            className={`list-none rounded-full border p-3 transition focus:outline-none ${
-              isHero
-                ? "border-white/20 bg-white/10 text-white hover:border-[#94D62D]/50"
-                : "border-slate-200 bg-slate-50 text-[#0F172A] hover:border-[#94D62D]/40"
-            }`}
-          >
-            <span className="sr-only">Open menu</span>
-            <svg
-              aria-hidden="true"
-              viewBox="0 0 24 24"
-              className="h-5 w-5"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="2"
-              strokeLinecap="round"
-            >
-              <path d="M4 7h16" />
-              <path d="M4 12h16" />
-              <path d="M4 17h16" />
-            </svg>
-          </summary>
 
           <div
-            className={`absolute right-0 mt-3 w-[min(18rem,calc(100vw-3rem))] overflow-hidden rounded-2xl border shadow-2xl ${
-              isHero
-                ? "border-white/10 bg-[#06164A]/95 shadow-black/30"
-                : "border-slate-200 bg-white shadow-slate-300/30"
+            className={`hidden items-center gap-6 text-sm lg:flex ${
+              isHero ? "text-white/70" : "text-slate-600"
             }`}
           >
-            <div className="flex flex-col p-2 text-sm">
-              {[
-                { href: "/", label: "Home" },
-                { href: "/services", label: "Services" },
-                { href: "/about", label: "About" },
-                { href: "/guarantee", label: "Guarantee" },
-                { href: "/contact", label: "Contact" },
-              ].map((link) => (
-                <a
-                  key={link.href}
-                  href={link.href}
-                  className={`rounded-xl px-4 py-3 transition ${
-                    isHero
-                      ? "text-white/80 hover:bg-white/10 hover:text-white"
-                      : "text-slate-600 hover:bg-slate-50 hover:text-[#0F172A]"
-                  }`}
-                >
-                  {link.label}
-                </a>
-              ))}
-              <div className="px-2 pb-2 pt-1">
-                <a
-                  href="/contact"
-                  className="block rounded-xl bg-[#94D62D] px-4 py-3 text-center font-semibold text-[#06164A] transition hover:bg-[#445A2A] hover:text-white"
-                >
-                  Get Inspection
-                </a>
-              </div>
-            </div>
+            {navLinks.map((link) => (
+              <a
+                key={link.href}
+                href={link.href}
+                className={`font-medium transition ${
+                  isHero ? "hover:text-white" : "hover:text-[#0F172A]"
+                }`}
+              >
+                {link.label}
+              </a>
+            ))}
           </div>
-        </details>
-      </div>
-    </nav>
+
+          <div className="flex items-center gap-2 sm:gap-3">
+            <a
+              href={PHONE_HREF}
+              className={`hidden font-semibold sm:block ${
+                isHero ? "text-white/90" : "text-[#06164A]"
+              }`}
+            >
+              {PHONE_DISPLAY}
+            </a>
+            <a
+              href={PHONE_HREF}
+              className="inline-flex items-center gap-1.5 rounded-lg bg-[#94D62D] px-3.5 py-2.5 text-sm font-semibold text-[#06164A] transition hover:bg-[#7CB82E] sm:px-4"
+            >
+              <Phone className="h-4 w-4" aria-hidden="true" />
+              <span>Call Now</span>
+            </a>
+            <a
+              href="/#estimate"
+              className={`hidden rounded-lg border px-4 py-2.5 text-sm font-semibold transition md:inline-flex ${
+                isHero
+                  ? "border-white/25 text-white hover:bg-white/10"
+                  : "border-slate-200 text-[#06164A] hover:border-[#94D62D] hover:text-[#445A2A]"
+              }`}
+            >
+              Free Estimate
+            </a>
+
+            <details className="group relative lg:hidden">
+              <summary
+                className={`list-none rounded-lg border p-2 transition focus:outline-none ${
+                  isHero
+                    ? "border-white/20 text-white"
+                    : "border-slate-200 text-[#0F172A]"
+                }`}
+              >
+                <span className="sr-only">Open menu</span>
+                <svg
+                  aria-hidden="true"
+                  viewBox="0 0 24 24"
+                  className="h-5 w-5"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                >
+                  <path d="M4 7h16" />
+                  <path d="M4 12h16" />
+                  <path d="M4 17h16" />
+                </svg>
+              </summary>
+
+              <div className="absolute right-0 mt-2 w-52 overflow-hidden rounded-xl border border-slate-200 bg-white shadow-lg">
+                <div className="flex flex-col p-1.5 text-sm">
+                  {navLinks.map((link) => (
+                    <a
+                      key={link.href}
+                      href={link.href}
+                      className="rounded-lg px-3 py-2.5 font-medium text-slate-600 transition hover:bg-slate-50 hover:text-[#0F172A]"
+                    >
+                      {link.label}
+                    </a>
+                  ))}
+                  <a
+                    href="/#estimate"
+                    className="mt-1 rounded-lg bg-[#94D62D] px-3 py-2.5 text-center font-semibold text-[#06164A]"
+                  >
+                    Free Estimate
+                  </a>
+                </div>
+              </div>
+            </details>
+          </div>
+        </div>
+      </nav>
+
+      {showTrustBadges && <TrustBadges variant={isHero ? "hero" : "light"} />}
+    </header>
   );
 }

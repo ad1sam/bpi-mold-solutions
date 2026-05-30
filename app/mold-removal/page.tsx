@@ -25,7 +25,7 @@ export default function MoldRemovalPage() {
   return (
     <main className="min-h-screen bg-white text-[#0F172A]">
       <SiteNav />
-      <div className="mx-auto max-w-7xl px-6 pb-24 pt-32 md:px-16 md:pb-28 md:pt-36">
+      <div className="mx-auto max-w-7xl px-6 pb-24 page-top-offset">
         <div className="max-w-5xl">
           <p className="mb-4 text-sm font-semibold uppercase tracking-[0.3em] text-[#445A2A]">
             BPI Mold Solutions
@@ -94,7 +94,7 @@ export default function MoldRemovalPage() {
 
             <div className="rounded-3xl border border-white/20 bg-white/95 p-8 shadow-lg">
               <h3 className="text-2xl font-semibold text-[#0F172A]">
-                Schedule Mold Inspection
+                Get a Free Quote
               </h3>
 
               <div className="mt-8 space-y-5 text-slate-600">
@@ -120,7 +120,7 @@ export default function MoldRemovalPage() {
                   href="/contact"
                   className="mt-4 block w-full rounded-2xl bg-[#06164A] px-8 py-5 text-center font-semibold text-white transition hover:bg-[#0F172A]"
                 >
-                  Book Inspection
+                  Get Started
                 </a>
               </div>
             </div>
