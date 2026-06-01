@@ -1,4 +1,5 @@
 import { SiteNav } from "../components/SiteNav";
+import { ContactForm } from "../components/ContactForm";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -24,7 +25,7 @@ export default function ContactPage() {
   return (
     <main className="min-h-screen bg-[#F8FAFC] text-[#0F172A]">
       <SiteNav />
-      <div className="mx-auto max-w-7xl px-6 pb-24 page-top-offset">
+      <div className="page-top-offset mx-auto max-w-7xl px-6 pb-24">
         <p className="mb-4 text-sm font-semibold uppercase tracking-[0.3em] text-[#445A2A]">
           BPI Mold Solutions
         </p>
@@ -83,39 +84,7 @@ export default function ContactPage() {
             <h2 className="text-2xl font-semibold text-[#0F172A]">
               Send a Message
             </h2>
-
-            <form className="mt-8 space-y-5">
-              <input
-                type="text"
-                placeholder="Full Name"
-                className="w-full rounded-2xl border border-slate-200 bg-[#F8FAFC] px-5 py-4 text-[#0F172A] outline-none transition focus:border-[#94D62D] focus:ring-2 focus:ring-[#94D62D]/20"
-              />
-
-              <input
-                type="email"
-                placeholder="Email Address"
-                className="w-full rounded-2xl border border-slate-200 bg-[#F8FAFC] px-5 py-4 text-[#0F172A] outline-none transition focus:border-[#94D62D] focus:ring-2 focus:ring-[#94D62D]/20"
-              />
-
-              <input
-                type="tel"
-                placeholder="Phone Number"
-                className="w-full rounded-2xl border border-slate-200 bg-[#F8FAFC] px-5 py-4 text-[#0F172A] outline-none transition focus:border-[#94D62D] focus:ring-2 focus:ring-[#94D62D]/20"
-              />
-
-              <textarea
-                placeholder="Tell us about your mold issue..."
-                rows={5}
-                className="w-full rounded-2xl border border-slate-200 bg-[#F8FAFC] px-5 py-4 text-[#0F172A] outline-none transition focus:border-[#94D62D] focus:ring-2 focus:ring-[#94D62D]/20"
-              />
-
-              <button
-                type="submit"
-                className="w-full rounded-2xl bg-[#94D62D] px-8 py-5 font-semibold text-[#06164A] shadow-lg shadow-[#94D62D]/25 transition hover:-translate-y-0.5 hover:bg-[#445A2A] hover:text-white"
-              >
-                Submit Request
-              </button>
-            </form>
+            <ContactForm variant="page" showTitle={false} />
           </div>
         </div>
       </div>
