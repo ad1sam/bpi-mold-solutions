@@ -1,10 +1,8 @@
 import { Phone } from "lucide-react";
-import { TrustBadges } from "./TrustBadges";
 import { PHONE_DISPLAY, PHONE_HREF } from "../lib/site";
 
 type SiteNavProps = {
   variant?: "hero" | "light";
-  showTrustBadges?: boolean;
 };
 
 const navLinks = [
@@ -14,10 +12,7 @@ const navLinks = [
   { href: "/contact", label: "Contact" },
 ];
 
-export function SiteNav({
-  variant = "light",
-  showTrustBadges = true,
-}: SiteNavProps) {
+export function SiteNav({ variant = "light" }: SiteNavProps) {
   const isHero = variant === "hero";
 
   return (
@@ -132,7 +127,6 @@ export function SiteNav({
         </div>
       </nav>
 
-      {showTrustBadges && <TrustBadges variant={isHero ? "hero" : "light"} />}
     </header>
   );
 }
