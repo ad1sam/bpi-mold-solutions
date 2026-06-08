@@ -1,4 +1,5 @@
 import { SiteNav } from "../components/SiteNav";
+import Image from "next/image";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -26,6 +27,7 @@ export default function MoldRemovalPage() {
     <main className="min-h-screen bg-white text-[#0F172A]">
       <SiteNav />
       <div className="mx-auto max-w-7xl px-6 pb-24 page-top-offset">
+        <div className="grid gap-12 lg:grid-cols-[minmax(0,1fr)_minmax(360px,0.8fr)] lg:items-center">
         <div className="max-w-5xl">
           <p className="mb-4 text-sm font-semibold uppercase tracking-[0.3em] text-[#445A2A]">
             BPI Mold Solutions
@@ -41,6 +43,18 @@ export default function MoldRemovalPage() {
             quality, and restore healthy living environments throughout New York
             State.
           </p>
+        </div>
+
+          <div className="overflow-hidden rounded-[2rem] shadow-2xl shadow-slate-200">
+            <Image
+              src="/images/mold-removal-service.png"
+              alt="Mold remediation containment area with professional removal equipment"
+              width={1408}
+              height={768}
+              sizes="(max-width: 1024px) 100vw, 40vw"
+              className="h-full min-h-[360px] w-full object-cover"
+            />
+          </div>
         </div>
 
         <div className="mt-16 grid gap-8 md:mt-20 md:grid-cols-3">

@@ -250,10 +250,7 @@ export function ContactForm({
 
   if (isHero) {
     return (
-      <div
-        id="estimate"
-        className="w-full scroll-mt-36 lg:max-w-md lg:justify-self-end"
-      >
+      <div className="w-full lg:max-w-md lg:justify-self-end">
         <div className="rounded-xl bg-white p-6 shadow-xl sm:p-7">
           <h2 className="text-xl font-bold text-[#06164A]">
             Get a Free Estimate

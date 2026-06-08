@@ -1,4 +1,5 @@
 import { SiteNav } from "../components/SiteNav";
+import Image from "next/image";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -67,9 +68,12 @@ export default function AirQualityTestingPage() {
         </div>
 
         <div className="overflow-hidden rounded-[2rem] shadow-xl">
-          <img
-            src="/images/air-quality-testing.jpg"
+          <Image
+            src="/images/airquality.png"
             alt="Professional indoor air quality testing for mold spores in New York"
+            width={1408}
+            height={768}
+            sizes="(max-width: 768px) 100vw, 50vw"
             className="h-full min-h-[420px] w-full object-cover"
           />
         </div>

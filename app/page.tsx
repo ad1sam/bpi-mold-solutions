@@ -1,4 +1,6 @@
 import type { Metadata } from "next";
+import Image from "next/image";
+import Link from "next/link";
 import {
   ShieldCheck,
   Building2,
@@ -8,6 +10,7 @@ import {
 } from "lucide-react";
 import { SiteNav } from "./components/SiteNav";
 import { HeroLeadForm } from "./components/HeroLeadForm";
+import { ServiceCostCalculator } from "./components/ServiceCostCalculator";
 import { PHONE_DISPLAY, PHONE_HREF } from "./lib/site";
 
 export const metadata: Metadata = {
@@ -34,26 +37,31 @@ const services = [
     title: "Mold Removal",
     href: "/mold-removal",
     icon: <ShieldCheck className="h-7 w-7 text-[#445A2A]" />,
+    image: "/images/mold-removal-service.png",
   },
   {
     title: "Commercial Mold Services",
     href: "/commercial-mold-services",
     icon: <Building2 className="h-7 w-7 text-[#445A2A]" />,
+    image: "/images/commercialmold.png",
   },
   {
     title: "Emergency Mold Services",
     href: "/emergency-mold-services",
     icon: <Siren className="h-7 w-7 text-[#445A2A]" />,
+    image: "/images/emergencymold.png",
   },
   {
     title: "Air Quality Testing",
     href: "/air-quality-testing",
     icon: <Wind className="h-7 w-7 text-[#445A2A]" />,
+    image: "/images/airquality.png",
   },
   {
     title: "Water Damage Prevention",
     href: "/water-damage-prevention",
     icon: <Droplets className="h-7 w-7 text-[#445A2A]" />,
+    image: "/images/watertesting.png",
   },
 ];
 
@@ -93,8 +101,8 @@ export default function Home() {
           />
         </div>
 
-        <div className="absolute inset-0 bg-[#06164A]/75" />
-        <div className="absolute inset-0 bg-gradient-to-r from-[#06164A]/90 to-[#06164A]/50" />
+        <div className="absolute inset-0 bg-[#06164A]/45" />
+        <div className="absolute inset-0 bg-gradient-to-r from-[#06164A]/75 via-[#06164A]/45 to-[#06164A]/10" />
 
         <div className="relative z-10 mx-auto w-full max-w-6xl">
           <div className="grid items-center gap-10 lg:grid-cols-2 lg:gap-16">
@@ -152,7 +160,7 @@ export default function Home() {
               <a
                 key={service.title}
                 href={service.href}
-                className={`group flex flex-col rounded-[1.75rem] border border-slate-200/70 bg-white p-8 shadow-[0_4px_24px_-4px_rgba(15,23,42,0.08)] transition duration-300 hover:-translate-y-1.5 hover:border-[#94D62D]/35 hover:shadow-[0_20px_40px_-12px_rgba(148,214,45,0.2)] sm:p-10 ${
+                className={`group flex flex-col overflow-hidden rounded-[1.75rem] border border-slate-200/70 bg-white shadow-[0_4px_24px_-4px_rgba(15,23,42,0.08)] transition duration-300 hover:-translate-y-1.5 hover:border-[#94D62D]/35 hover:shadow-[0_20px_40px_-12px_rgba(148,214,45,0.2)] ${
                   index % 3 === 0
                     ? "animate-fade-up"
                     : index % 3 === 1
@@ -160,22 +168,35 @@ export default function Home() {
                       : "animate-fade-up-delay-2"
                 }`}
               >
-                <div className="mb-6 flex h-16 w-16 items-center justify-center rounded-2xl bg-[#F6FBF4] ring-1 ring-[#94D62D]/20 transition duration-300 group-hover:bg-[#94D62D]/15 group-hover:ring-[#94D62D]/40">
-                  {service.icon}
+                {service.image && (
+                  <Image
+                    src={service.image}
+                    alt="Mold remediation containment area with professional removal equipment"
+                    width={1408}
+                    height={768}
+                    sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                    className="h-56 w-full object-cover"
+                  />
+                )}
+
+                <div className="flex flex-1 flex-col p-8 sm:p-10">
+                  <div className="mb-6 flex h-16 w-16 items-center justify-center rounded-2xl bg-[#F6FBF4] ring-1 ring-[#94D62D]/20 transition duration-300 group-hover:bg-[#94D62D]/15 group-hover:ring-[#94D62D]/40">
+                    {service.icon}
+                  </div>
+
+                  <h3 className="text-xl font-semibold text-[#0F172A] sm:text-2xl">
+                    {service.title}
+                  </h3>
+
+                  <p className="mt-4 flex-1 leading-7 text-slate-600">
+                    Professional solutions focused on detection, remediation,
+                    prevention, and healthier indoor environments.
+                  </p>
+
+                  <span className="mt-6 text-sm font-semibold text-[#445A2A] transition group-hover:text-[#94D62D]">
+                    Learn more →
+                  </span>
                 </div>
-
-                <h3 className="text-xl font-semibold text-[#0F172A] sm:text-2xl">
-                  {service.title}
-                </h3>
-
-                <p className="mt-4 flex-1 leading-7 text-slate-600">
-                  Professional solutions focused on detection, remediation,
-                  prevention, and healthier indoor environments.
-                </p>
-
-                <span className="mt-6 text-sm font-semibold text-[#445A2A] transition group-hover:text-[#94D62D]">
-                  Learn more →
-                </span>
               </a>
             ))}
           </div>
@@ -381,6 +402,8 @@ export default function Home() {
         </div>
       </section>
 
+      <ServiceCostCalculator />
+
       {/* Contact CTA — premium green gradient */}
       <section
         id="contact"
@@ -458,13 +481,13 @@ export default function Home() {
       <footer className="border-t border-white/10 bg-[#06164A] px-6 py-16 text-white md:px-16 md:py-20">
         <div className="mx-auto grid max-w-7xl gap-12 md:grid-cols-4">
           <div className="md:col-span-2">
-            <a href="/" className="inline-block">
+            <Link href="/" className="inline-block">
               <img
                 src="/images/logo.png"
                 alt="BPI Mold Solutions"
-                className="h-12 w-auto md:h-14"
+                className="h-16 w-auto md:h-20"
               />
-            </a>
+            </Link>
 
             <p className="mt-6 max-w-lg leading-8 text-white/60">
               BPI Mold Solutions provides professional mold removal, remediation,
@@ -477,18 +500,18 @@ export default function Home() {
             <h3 className="mb-5 text-lg font-semibold">Quick Links</h3>
 
             <div className="flex flex-col gap-4 text-white/60">
-              <a href="/" className="transition hover:text-[#94D62D]">
+              <Link href="/" className="transition hover:text-[#94D62D]">
                 Home
-              </a>
-              <a href="/services" className="transition hover:text-[#94D62D]">
+              </Link>
+              <Link href="/services" className="transition hover:text-[#94D62D]">
                 Services
-              </a>
-              <a href="/about" className="transition hover:text-[#94D62D]">
+              </Link>
+              <Link href="/about" className="transition hover:text-[#94D62D]">
                 About
-              </a>
-              <a href="/contact" className="transition hover:text-[#94D62D]">
+              </Link>
+              <Link href="/contact" className="transition hover:text-[#94D62D]">
                 Contact
-              </a>
+              </Link>
             </div>
           </div>
 
@@ -496,21 +519,21 @@ export default function Home() {
             <h3 className="mb-5 text-lg font-semibold">Services</h3>
 
             <div className="flex flex-col gap-4 text-white/60">
-              <a href="/mold-removal" className="transition hover:text-[#94D62D]">
+              <Link href="/mold-removal" className="transition hover:text-[#94D62D]">
                 Mold Removal
-              </a>
-              <a
+              </Link>
+              <Link
                 href="/air-quality-testing"
                 className="transition hover:text-[#94D62D]"
               >
                 Air Quality Testing
-              </a>
-              <a
+              </Link>
+              <Link
                 href="/emergency-mold-services"
                 className="transition hover:text-[#94D62D]"
               >
                 Emergency Mold Services
-              </a>
+              </Link>
             </div>
           </div>
         </div>

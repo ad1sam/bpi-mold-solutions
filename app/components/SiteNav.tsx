@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { Phone } from "lucide-react";
 import { PHONE_DISPLAY, PHONE_HREF } from "../lib/site";
 
@@ -20,19 +21,19 @@ export function SiteNav({ variant = "light" }: SiteNavProps) {
       <nav
         className={
           isHero
-            ? "border-b border-white/10 bg-[#06164A]/95 backdrop-blur-md"
+            ? "border-b border-white/10 bg-[#06164A]/90 backdrop-blur-md"
             : "border-b border-slate-100 bg-white/95 backdrop-blur-md"
         }
         aria-label="Main navigation"
       >
-        <div className="mx-auto flex h-16 max-w-7xl items-center justify-between gap-4 px-4 sm:px-6 lg:px-8">
-          <a href="/" className="shrink-0">
+        <div className="mx-auto flex h-24 max-w-7xl items-center justify-between gap-4 px-4 sm:px-6 lg:px-8">
+          <Link href="/" className="shrink-0">
             <img
               src="/images/logo.png"
               alt="BPI Mold Solutions"
-              className="h-9 w-auto sm:h-10"
+              className="h-16 w-auto sm:h-[4.5rem]"
             />
-          </a>
+          </Link>
 
           <div
             className={`hidden items-center gap-6 text-sm lg:flex ${
@@ -40,7 +41,7 @@ export function SiteNav({ variant = "light" }: SiteNavProps) {
             }`}
           >
             {navLinks.map((link) => (
-              <a
+              <Link
                 key={link.href}
                 href={link.href}
                 className={`font-medium transition ${
@@ -48,7 +49,7 @@ export function SiteNav({ variant = "light" }: SiteNavProps) {
                 }`}
               >
                 {link.label}
-              </a>
+              </Link>
             ))}
           </div>
 
@@ -68,7 +69,7 @@ export function SiteNav({ variant = "light" }: SiteNavProps) {
               <Phone className="h-4 w-4" aria-hidden="true" />
               <span>Call Now</span>
             </a>
-            <a
+            <Link
               href="/#estimate"
               className={`hidden rounded-lg border px-4 py-2.5 text-sm font-semibold transition md:inline-flex ${
                 isHero
@@ -77,7 +78,7 @@ export function SiteNav({ variant = "light" }: SiteNavProps) {
               }`}
             >
               Free Estimate
-            </a>
+            </Link>
 
             <details className="group relative lg:hidden">
               <summary
@@ -106,20 +107,20 @@ export function SiteNav({ variant = "light" }: SiteNavProps) {
               <div className="absolute right-0 mt-2 w-52 overflow-hidden rounded-xl border border-slate-200 bg-white shadow-lg">
                 <div className="flex flex-col p-1.5 text-sm">
                   {navLinks.map((link) => (
-                    <a
+                    <Link
                       key={link.href}
                       href={link.href}
                       className="rounded-lg px-3 py-2.5 font-medium text-slate-600 transition hover:bg-slate-50 hover:text-[#0F172A]"
                     >
                       {link.label}
-                    </a>
+                    </Link>
                   ))}
-                  <a
+                  <Link
                     href="/#estimate"
                     className="mt-1 rounded-lg bg-[#94D62D] px-3 py-2.5 text-center font-semibold text-[#06164A]"
                   >
                     Free Estimate
-                  </a>
+                  </Link>
                 </div>
               </div>
             </details>

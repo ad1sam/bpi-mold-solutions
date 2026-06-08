@@ -54,11 +54,11 @@ body {
 }
 
 .page-top-offset {
-  padding-top: 6.5rem;
+  padding-top: 8.5rem;
 }
 
 @media (min-width: 640px) {
   .page-top-offset {
-    padding-top: 7rem;
+    padding-top: 9rem;
   }
 }

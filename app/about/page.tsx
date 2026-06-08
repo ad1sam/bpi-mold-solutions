@@ -31,36 +31,30 @@ export default function AboutPage() {
     <main className="min-h-screen bg-white text-[#0F172A]">
       <SiteNav />
 
-      <section className="page-top-offset mx-auto grid max-w-7xl gap-12 px-6 pb-20 md:grid-cols-2 md:px-16">
-        <div>
-          <p className="mb-4 text-sm font-semibold uppercase tracking-[0.3em] text-[#445A2A]">
+      <section className="page-top-offset bg-[#06164A] px-6 py-32 text-white md:px-16">
+        <div className="mx-auto max-w-6xl">
+          <p className="mb-4 text-sm uppercase tracking-[0.3em] text-[#94D62D]">
             About BPI Mold Solutions
           </p>
 
-          <h1 className="text-4xl font-bold leading-tight tracking-tight sm:text-5xl md:text-6xl">
+          <h1 className="max-w-4xl text-5xl font-bold leading-tight md:text-7xl">
             Trusted Mold Remediation Experts in New York
           </h1>
 
-          <p className="mt-6 text-lg leading-8 text-slate-600">
+          <p className="mt-8 max-w-3xl text-xl leading-9 text-white/75">
             BPI Mold Solutions provides professional mold removal, remediation,
             air quality testing, emergency mold services, and moisture prevention
             solutions for homes and commercial properties across New York State.
           </p>
 
-          <a
-            href="/contact"
-            className="mt-8 inline-block rounded-full bg-[#94D62D] px-8 py-4 font-semibold text-[#06164A] transition hover:bg-[#445A2A] hover:text-white"
-          >
-            Contact Us
-          </a>
-        </div>
-
-        <div className="overflow-hidden rounded-[2rem] shadow-xl">
-          <img
-            src="/images/about-bpi-mold-solutions.jpg"
-            alt="BPI Mold Solutions mold remediation team in New York"
-            className="h-full min-h-[430px] w-full object-cover"
-          />
+          <div className="mt-10">
+            <a
+              href="/contact"
+              className="rounded-2xl bg-[#94D62D] px-8 py-5 font-semibold text-[#06164A] transition hover:bg-white"
+            >
+              Contact Us
+            </a>
+          </div>
         </div>
       </section>
 

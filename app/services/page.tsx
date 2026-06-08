@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import { SiteNav } from "../components/SiteNav";
 
 export const metadata: Metadata = {
@@ -26,30 +27,35 @@ const services = [
   {
     title: "Mold Removal",
     href: "/mold-removal",
+    image: "/images/mold-removal-service.png",
     description:
       "Safe and professional mold removal services designed to remove visible mold, address contamination, and help restore healthier indoor environments.",
   },
   {
     title: "Commercial Mold Services",
     href: "/commercial-mold-services",
+    image: "/images/commercialmold.png",
     description:
       "Mold remediation solutions for offices, buildings, rental properties, commercial spaces, and business facilities.",
   },
   {
     title: "Emergency Mold Services",
     href: "/emergency-mold-services",
+    image: "/images/emergencymold.png",
     description:
       "Fast response services for urgent mold concerns, water damage events, moisture problems, and active mold growth.",
   },
   {
     title: "Air Quality Testing",
     href: "/air-quality-testing",
+    image: "/images/airquality.png",
     description:
       "Professional indoor air quality testing to help detect mold spores, airborne contaminants, and potential environmental concerns.",
   },
   {
     title: "Water Damage Prevention",
     href: "/water-damage-prevention",
+    image: "/images/watertesting.png",
     description:
       "Prevention solutions focused on moisture control, leak risks, humidity issues, and long-term mold prevention.",
   },
@@ -70,21 +76,31 @@ export default function ServicesPage() {
     <main className="min-h-screen bg-white text-[#0F172A]">
       <SiteNav />
 
-      <section className="page-top-offset mx-auto max-w-7xl px-6 pb-20 md:px-16">
-        <p className="mb-4 text-sm font-semibold uppercase tracking-[0.3em] text-[#445A2A]">
-          BPI Mold Solutions
-        </p>
+      <section className="page-top-offset bg-[#06164A] px-6 py-32 text-white md:px-16">
+        <div className="mx-auto max-w-6xl">
+          <p className="mb-4 text-sm uppercase tracking-[0.3em] text-[#94D62D]">
+            BPI Mold Solutions
+          </p>
 
-        <h1 className="max-w-5xl text-4xl font-bold leading-tight tracking-tight sm:text-5xl md:text-6xl">
-          Professional Mold Services in New York
-        </h1>
+          <h1 className="max-w-4xl text-5xl font-bold leading-tight md:text-7xl">
+            Professional Mold Services in New York
+          </h1>
 
-        <p className="mt-6 max-w-4xl text-lg leading-8 text-slate-600">
-          BPI Mold Solutions provides professional mold removal, mold remediation,
-          emergency mold services, commercial mold solutions, air quality testing,
-          and water damage prevention across Staten Island, Brooklyn, Queens,
-          Manhattan, Bronx, Long Island, and New York State.
-        </p>
+          <p className="mt-8 max-w-3xl text-xl leading-9 text-white/75">
+            BPI Mold Solutions provides professional mold removal, remediation,
+            emergency mold services, commercial mold solutions, air quality testing,
+            and water damage prevention across New York State.
+          </p>
+
+          <div className="mt-10">
+            <a
+              href="/contact"
+              className="rounded-2xl bg-[#94D62D] px-8 py-5 font-semibold text-[#06164A] transition hover:bg-white"
+            >
+              Request Service
+            </a>
+          </div>
+        </div>
       </section>
 
       <section className="bg-[#F8FAFC] px-6 py-20 md:px-16">
@@ -104,16 +120,29 @@ export default function ServicesPage() {
               <a
                 key={service.href}
                 href={service.href}
-                className="group rounded-3xl border border-slate-200/80 bg-white p-8 shadow-sm shadow-slate-200/50 transition duration-300 hover:-translate-y-1 hover:border-[#94D62D]/40 hover:shadow-xl hover:shadow-[#94D62D]/10 sm:p-10"
+                className="group overflow-hidden rounded-3xl border border-slate-200/80 bg-white shadow-sm shadow-slate-200/50 transition duration-300 hover:-translate-y-1 hover:border-[#94D62D]/40 hover:shadow-xl hover:shadow-[#94D62D]/10"
               >
-                <h3 className="text-2xl font-semibold">{service.title}</h3>
+                {service.image && (
+                  <Image
+                    src={service.image}
+                    alt="Mold remediation containment area with professional removal equipment"
+                    width={1408}
+                    height={768}
+                    sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                    className="h-56 w-full object-cover"
+                  />
+                )}
 
-                <p className="mt-4 leading-7 text-slate-600">
-                  {service.description}
-                </p>
+                <div className="p-8 sm:p-10">
+                  <h3 className="text-2xl font-semibold">{service.title}</h3>
 
-                <div className="mt-6 text-sm font-semibold text-[#445A2A] transition group-hover:text-[#94D62D]">
-                  Learn more →
+                  <p className="mt-4 leading-7 text-slate-600">
+                    {service.description}
+                  </p>
+
+                  <div className="mt-6 text-sm font-semibold text-[#445A2A] transition group-hover:text-[#94D62D]">
+                    Learn more →
+                  </div>
                 </div>
               </a>
             ))}

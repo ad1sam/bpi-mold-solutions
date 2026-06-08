@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { Phone } from "lucide-react";
 import { PHONE_HREF } from "../lib/site";
 
@@ -16,12 +17,12 @@ export function StickyCtaBar() {
           <Phone className="h-4 w-4" aria-hidden="true" />
           Call Now
         </a>
-        <a
+        <Link
           href="/#estimate"
           className="flex flex-1 items-center justify-center rounded-lg bg-[#94D62D] py-3 text-sm font-semibold text-[#06164A]"
         >
           Free Estimate
-        </a>
+        </Link>
       </div>
     </div>
   );
