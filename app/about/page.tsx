@@ -1,5 +1,6 @@
 import { SiteNav } from "../components/SiteNav";
 import type { Metadata } from "next";
+import Image from "next/image";
 
 export const metadata: Metadata = {
   title: "About BPI Mold Solutions | Mold Remediation in New York",
@@ -8,6 +9,7 @@ export const metadata: Metadata = {
 };
 
 const values = [
+  "Licensed and certified",
   "Professional mold remediation",
   "Safe remediation process",
   "Fast response times",
@@ -72,6 +74,48 @@ export default function AboutPage() {
             the source of the issue, treating affected areas, and helping
             prevent future mold growth.
           </p>
+        </div>
+      </section>
+
+      <section className="bg-white px-6 py-20 md:px-16">
+        <div className="mx-auto grid max-w-7xl gap-12 md:grid-cols-[0.95fr_1.05fr] md:items-center">
+          <div className="relative aspect-[4/5] overflow-hidden rounded-lg bg-slate-100 shadow-sm">
+            <Image
+              src="/images/ceo-drilon-pustina.png"
+              alt="Drilon Pustina, CEO of BPI Mold Solutions"
+              fill
+              sizes="(min-width: 768px) 44vw, 100vw"
+              className="object-cover"
+            />
+          </div>
+
+          <div>
+            <p className="mb-4 text-sm font-semibold uppercase tracking-[0.3em] text-[#445A2A]">
+              CEO
+            </p>
+
+            <h2 className="text-3xl font-bold md:text-5xl">
+              Drilon Pustina
+            </h2>
+
+            <div className="mt-6 inline-flex rounded-lg border border-[#94D62D]/35 bg-[#F6FBF4] px-5 py-3 text-sm font-bold uppercase tracking-[0.2em] text-[#445A2A]">
+              Licensed &amp; Certified
+            </div>
+
+            <p className="mt-6 text-lg leading-8 text-slate-600">
+              As CEO of BPI Mold Solutions, Drilon Pustina works directly around
+              the standards that matter most to property owners: responsive
+              service, honest guidance, and careful mold remediation from the
+              first inspection through the final recommendation.
+            </p>
+
+            <p className="mt-6 text-lg leading-8 text-slate-600">
+              His leadership keeps the company focused on practical solutions
+              for homes, apartments, commercial spaces, and property managers
+              across New York. BPI Mold Solutions is licensed and certified for
+              professional mold remediation services.
+            </p>
+          </div>
         </div>
       </section>
 
