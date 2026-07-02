@@ -28,6 +28,7 @@ const services = [
     title: "Mold Removal",
     href: "/mold-removal",
     image: "/images/mold-removal-service.png",
+    imageAlt: "Mold remediation containment area with professional removal equipment",
     description:
       "Safe and professional mold removal services designed to remove visible mold, address contamination, and help restore healthier indoor environments.",
   },
@@ -35,6 +36,7 @@ const services = [
     title: "Commercial Mold Services",
     href: "/commercial-mold-services",
     image: "/images/commercialmold.png",
+    imageAlt: "Commercial mold remediation services for office buildings and business properties",
     description:
       "Mold remediation solutions for offices, buildings, rental properties, commercial spaces, and business facilities.",
   },
@@ -42,6 +44,7 @@ const services = [
     title: "Emergency Mold Services",
     href: "/emergency-mold-services",
     image: "/images/emergencymold.png",
+    imageAlt: "Emergency mold remediation area with professional containment and cleanup equipment",
     description:
       "Fast response services for urgent mold concerns, water damage events, moisture problems, and active mold growth.",
   },
@@ -49,6 +52,7 @@ const services = [
     title: "Air Quality Testing",
     href: "/air-quality-testing",
     image: "/images/airquality.png",
+    imageAlt: "Indoor air quality testing equipment for mold inspection services",
     description:
       "Professional indoor air quality testing to help detect mold spores, airborne contaminants, and potential environmental concerns.",
   },
@@ -56,6 +60,7 @@ const services = [
     title: "Water Damage Prevention",
     href: "/water-damage-prevention",
     image: "/images/watertesting.png",
+    imageAlt: "Water damage prevention inspection with professional moisture testing equipment",
     description:
       "Prevention solutions focused on moisture control, leak risks, humidity issues, and long-term mold prevention.",
   },
@@ -125,11 +130,12 @@ export default function ServicesPage() {
                 {service.image && (
                   <Image
                     src={service.image}
-                    alt="Mold remediation containment area with professional removal equipment"
+                    alt={service.imageAlt}
                     width={1408}
                     height={768}
                     sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
                     className="h-56 w-full object-cover"
+                    unoptimized={service.image === "/images/watertesting.png"}
                   />
                 )}
 

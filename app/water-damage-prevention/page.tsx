@@ -79,6 +79,7 @@ export default function WaterDamagePreventionPage() {
               height={768}
               sizes="(max-width: 1024px) 100vw, 40vw"
               className="h-full min-h-[360px] w-full object-cover"
+              unoptimized
             />
           </div>
         </div>

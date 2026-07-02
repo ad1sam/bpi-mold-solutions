@@ -37,30 +37,35 @@ const services = [
     href: "/mold-removal",
     icon: <ShieldCheck className="h-7 w-7 text-[#445A2A]" />,
     image: "/images/mold-removal-service.png",
+    imageAlt: "Mold remediation containment area with professional removal equipment",
   },
   {
     title: "Commercial Mold Services",
     href: "/commercial-mold-services",
     icon: <Building2 className="h-7 w-7 text-[#445A2A]" />,
     image: "/images/commercialmold.png",
+    imageAlt: "Commercial mold remediation services for office buildings and business properties",
   },
   {
     title: "Emergency Mold Services",
     href: "/emergency-mold-services",
     icon: <Siren className="h-7 w-7 text-[#445A2A]" />,
     image: "/images/emergencymold.png",
+    imageAlt: "Emergency mold remediation area with professional containment and cleanup equipment",
   },
   {
     title: "Air Quality Testing",
     href: "/air-quality-testing",
     icon: <Wind className="h-7 w-7 text-[#445A2A]" />,
     image: "/images/airquality.png",
+    imageAlt: "Indoor air quality testing equipment for mold inspection services",
   },
   {
     title: "Water Damage Prevention",
     href: "/water-damage-prevention",
     icon: <Droplets className="h-7 w-7 text-[#445A2A]" />,
     image: "/images/watertesting.png",
+    imageAlt: "Water damage prevention inspection with professional moisture testing equipment",
   },
 ];
 
@@ -170,11 +175,12 @@ export default function Home() {
                 {service.image && (
                   <Image
                     src={service.image}
-                    alt="Mold remediation containment area with professional removal equipment"
+                    alt={service.imageAlt}
                     width={1408}
                     height={768}
                     sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
                     className="h-56 w-full object-cover"
+                    unoptimized={service.image === "/images/watertesting.png"}
                   />
                 )}
 
