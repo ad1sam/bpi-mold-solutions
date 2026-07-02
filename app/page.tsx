@@ -10,7 +10,6 @@ import {
 } from "lucide-react";
 import { SiteNav } from "./components/SiteNav";
 import { HeroLeadForm } from "./components/HeroLeadForm";
-import { ServiceCostCalculator } from "./components/ServiceCostCalculator";
 import { PHONE_DISPLAY, PHONE_HREF } from "./lib/site";
 
 export const metadata: Metadata = {
@@ -358,7 +357,27 @@ export default function Home() {
         </div>
       </section>
 
-      <ServiceCostCalculator />
+      <section className="bg-white px-6 py-24 md:px-16">
+        <div className="mx-auto max-w-4xl text-center">
+          <h2 className="text-3xl font-bold leading-tight tracking-tight text-[#0F172A] sm:text-4xl md:text-5xl">
+            Need Mold Help Fast?
+          </h2>
+
+          <p className="mx-auto mt-6 max-w-2xl text-lg leading-8 text-slate-600">
+            Get a free on-site inspection and a clear, no-obligation quote from
+            our licensed mold remediation team.
+          </p>
+
+          <div className="mt-10">
+            <a
+              href="/contact"
+              className="inline-flex rounded-full bg-[#94D62D] px-9 py-4 text-center font-semibold text-[#06164A] shadow-lg shadow-[#94D62D]/25 transition hover:-translate-y-0.5 hover:bg-[#83C326]"
+            >
+              Request Free Inspection
+            </a>
+          </div>
+        </div>
+      </section>
 
       {/* Contact CTA — premium green gradient */}
       <section
