@@ -1,14 +1,31 @@
 import { SiteNav } from "../components/SiteNav";
 import type { Metadata } from "next";
-export const metadata = {
-    title: "Mold Remediation Guarantee | BPI Mold Solutions",
-    description:
-      "Learn about the BPI Mold Solutions Mold Remediation Guarantee and our commitment to providing professional mold remediation services across New York State.",
-  };
+import { JsonLd } from "../components/JsonLd";
+import { createMetadata } from "../lib/seo";
+import { breadcrumbSchema } from "../lib/schema";
+
+export const metadata: Metadata = createMetadata({
+  title: "Mold Remediation Guarantee",
+  description:
+    "Read about the BPI Mold Solutions remediation guarantee, coverage conditions, and customer support for treated mold remediation areas.",
+  path: "/guarantee",
+  keywords: [
+    "mold remediation guarantee",
+    "mold removal guarantee",
+    "BPI Mold Solutions guarantee",
+    "mold remediation support NYC",
+  ],
+});
   
   export default function GuaranteePage() {
     return (
       <main className="min-h-screen bg-white">
+        <JsonLd
+          data={breadcrumbSchema([
+            { name: "Home", path: "/" },
+            { name: "Guarantee", path: "/guarantee" },
+          ])}
+        />
         <SiteNav />
         {/* HERO */}
         <section className="page-top-offset bg-[#06164A] px-6 py-32 text-white md:px-16">
@@ -47,7 +64,8 @@ export const metadata = {
   
             <p className="mt-8 text-lg leading-9 text-slate-600">
               BPI Mold Solutions takes pride in providing professional mold
-              remediation and prevention services throughout New York State. Our guarantee reflects our confidence in our remediation
+              remediation and prevention services throughout New York City and
+              Long Island. Our guarantee reflects our confidence in our remediation
               process and our commitment to customer satisfaction.
             </p>
   
@@ -184,7 +202,7 @@ export const metadata = {
                 "Professional Mold Remediation",
                 "Advanced Detection Methods",
                 "Fast Emergency Response",
-                "Serving New York State",
+                "Serving NYC & Long Island",
               ].map((item) => (
                 <div
                   key={item}

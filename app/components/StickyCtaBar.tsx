@@ -18,7 +18,7 @@ export function StickyCtaBar() {
           Call Now
         </a>
         <Link
-          href="/#estimate"
+          href="/contact"
           className="flex flex-1 items-center justify-center rounded-lg bg-[#94D62D] py-3 text-sm font-semibold text-[#06164A]"
         >
           Free Estimate

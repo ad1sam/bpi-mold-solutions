@@ -1,12 +1,27 @@
 import { SiteNav } from "../components/SiteNav";
 import type { Metadata } from "next";
 import Image from "next/image";
+import { JsonLd } from "../components/JsonLd";
+import { createMetadata, locationPages } from "../lib/seo";
+import {
+  breadcrumbSchema,
+  localBusinessSchema,
+  organizationSchema,
+} from "../lib/schema";
 
-export const metadata: Metadata = {
-  title: "About BPI Mold Solutions | Mold Remediation in New York",
+export const metadata: Metadata = createMetadata({
+  title: "About Our Mold Remediation Company",
   description:
-    "Learn about BPI Mold Solutions, a professional mold removal, remediation, and air quality testing company serving Staten Island, Brooklyn, Queens, Manhattan, Bronx, Long Island, and New York State.",
-};
+    "Learn about BPI Mold Solutions, a Staten Island mold remediation company serving residential and commercial clients across New York City and Long Island.",
+  path: "/about",
+  keywords: [
+    "BPI Mold Solutions",
+    "mold remediation company NYC",
+    "Staten Island mold remediation",
+    "licensed mold remediation company",
+    "certified mold remediation services",
+  ],
+});
 
 const values = [
   "Licensed and certified",
@@ -18,19 +33,19 @@ const values = [
   "Long-term mold prevention",
 ];
 
-const areas = [
-  "Staten Island",
-  "Brooklyn",
-  "Queens",
-  "Manhattan",
-  "Bronx",
-  "Long Island",
-  "New York State",
-];
-
 export default function AboutPage() {
   return (
     <main className="min-h-screen bg-white text-[#0F172A]">
+      <JsonLd
+        data={[
+          organizationSchema(),
+          localBusinessSchema(),
+          breadcrumbSchema([
+            { name: "Home", path: "/" },
+            { name: "About", path: "/about" },
+          ]),
+        ]}
+      />
       <SiteNav />
 
       <section className="page-top-offset bg-[#06164A] px-6 py-32 text-white md:px-16">
@@ -46,7 +61,8 @@ export default function AboutPage() {
           <p className="mt-8 max-w-3xl text-xl leading-9 text-white/75">
             BPI Mold Solutions provides professional mold removal, remediation,
             air quality testing, emergency mold services, and moisture prevention
-            solutions for homes and commercial properties across New York State.
+            solutions for homes and commercial properties across New York City
+            and Long Island.
           </p>
 
           <div className="mt-10">
@@ -112,8 +128,8 @@ export default function AboutPage() {
             <p className="mt-6 text-lg leading-8 text-slate-600">
               His leadership keeps the company focused on practical solutions
               for homes, apartments, commercial spaces, and property managers
-              across New York. BPI Mold Solutions is licensed and certified for
-              professional mold remediation services.
+            across New York. BPI Mold Solutions is licensed and certified for
+            professional mold remediation services.
             </p>
           </div>
         </div>
@@ -169,17 +185,18 @@ export default function AboutPage() {
 
           <p className="mt-5 max-w-3xl text-lg leading-8 text-slate-600">
             BPI Mold Solutions serves residential and commercial clients across
-            New York State.
+            New York City and Long Island.
           </p>
 
           <div className="mt-10 flex flex-wrap gap-4">
-            {areas.map((area) => (
-              <span
-                key={area}
-                className="rounded-full border border-[#94D62D]/30 bg-white px-6 py-3 font-semibold text-[#445A2A] shadow-sm"
+            {locationPages.map((area) => (
+              <a
+                key={area.slug}
+                href={`/locations/${area.slug}`}
+                className="rounded-full border border-[#94D62D]/30 bg-white px-6 py-3 font-semibold text-[#445A2A] shadow-sm transition hover:border-[#445A2A]"
               >
-                {area}
-              </span>
+                {area.name}
+              </a>
             ))}
           </div>
         </div>

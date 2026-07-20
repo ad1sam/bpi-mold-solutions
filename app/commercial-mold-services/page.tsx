@@ -1,14 +1,18 @@
 import { SiteNav } from "../components/SiteNav";
 import Image from "next/image";
 import type { Metadata } from "next";
+import { JsonLd } from "../components/JsonLd";
+import { createMetadata } from "../lib/seo";
+import { breadcrumbSchema, faqSchema, serviceSchema } from "../lib/schema";
 
-export const metadata: Metadata = {
-  title: "Commercial Mold Services NY | Offices & Buildings",
+export const metadata: Metadata = createMetadata({
+  title: "Commercial Mold Remediation NYC",
   description:
-    "Commercial mold remediation for offices, multi-family buildings, property managers, and business properties across New York City, Staten Island, Brooklyn, Queens, Manhattan, Bronx, Long Island, and New York State.",
+    "Commercial mold remediation, mold testing, moisture investigation, and indoor air quality support for offices, buildings, landlords, and property managers in NYC and Long Island.",
+  path: "/commercial-mold-services",
   keywords: [
-    "commercial mold services",
-    "commercial mold remediation New York",
+    "commercial mold services NYC",
+    "commercial mold remediation NYC",
     "building mold removal",
     "office mold remediation",
     "mold remediation for property managers",
@@ -19,7 +23,7 @@ export const metadata: Metadata = {
     "Staten Island commercial mold services",
     "Long Island commercial mold remediation",
   ],
-};
+});
 
 const industries = [
   "Office Buildings",
@@ -39,12 +43,48 @@ const serviceAreas = [
   "Manhattan",
   "Bronx",
   "Long Island",
-  "New York State",
+];
+
+const faqs = [
+  {
+    q: "What causes mold in commercial buildings?",
+    a: "Common causes include roof leaks, HVAC moisture issues, plumbing failures, flooding, condensation, and poor ventilation.",
+  },
+  {
+    q: "How quickly should mold be addressed?",
+    a: "Mold concerns should be investigated as soon as possible to reduce property damage and indoor air quality concerns.",
+  },
+  {
+    q: "Can mold affect employees and tenants?",
+    a: "Mold growth may impact indoor air quality and workplace comfort, which is why early assessment is important.",
+  },
+  {
+    q: "Do you provide emergency commercial mold services?",
+    a: "Yes. BPI Mold Solutions provides emergency response services for commercial properties across New York.",
+  },
 ];
 
 export default function CommercialMoldServicesPage() {
   return (
     <main className="min-h-screen bg-white text-[#0F172A]">
+      <JsonLd
+        data={[
+          breadcrumbSchema([
+            { name: "Home", path: "/" },
+            { name: "Services", path: "/services" },
+            {
+              name: "Commercial Mold Services",
+              path: "/commercial-mold-services",
+            },
+          ]),
+          serviceSchema({
+            name: "Commercial Mold Remediation",
+            description: metadata.description as string,
+            path: "/commercial-mold-services",
+          }),
+          faqSchema(faqs),
+        ]}
+      />
       <SiteNav />
 
       <section className="page-top-offset mx-auto grid max-w-7xl gap-12 px-6 pb-20 md:grid-cols-2 md:px-16">
@@ -61,7 +101,8 @@ export default function CommercialMoldServicesPage() {
             Professional commercial mold remediation, moisture investigation,
             and indoor air quality services for office buildings, apartment
             complexes, retail properties, healthcare facilities, schools,
-            warehouses, and commercial properties throughout New York State.
+            warehouses, and commercial properties throughout New York City and
+            Long Island.
           </p>
 
           <a
@@ -80,6 +121,7 @@ export default function CommercialMoldServicesPage() {
             height={768}
             sizes="(max-width: 768px) 100vw, 50vw"
             className="h-full min-h-[450px] w-full object-cover"
+            preload
           />
         </div>
       </section>
@@ -94,7 +136,7 @@ export default function CommercialMoldServicesPage() {
             BPI Mold Solutions provides commercial mold remediation, mold testing,
             containment, moisture investigations, and indoor air quality solutions
             for businesses, landlords, property managers, and commercial property
-            owners throughout New York.
+            owners throughout New York City and Long Island.
           </p>
         </div>
       </section>
@@ -195,24 +237,7 @@ export default function CommercialMoldServicesPage() {
           </h2>
 
           <div className="mt-10 space-y-6">
-            {[
-              {
-                q: "What causes mold in commercial buildings?",
-                a: "Common causes include roof leaks, HVAC moisture issues, plumbing failures, flooding, condensation, and poor ventilation.",
-              },
-              {
-                q: "How quickly should mold be addressed?",
-                a: "Mold concerns should be investigated as soon as possible to reduce property damage and indoor air quality concerns.",
-              },
-              {
-                q: "Can mold affect employees and tenants?",
-                a: "Mold growth may impact indoor air quality and workplace comfort, which is why early assessment is important.",
-              },
-              {
-                q: "Do you provide emergency commercial mold services?",
-                a: "Yes. BPI Mold Solutions provides emergency response services for commercial properties across New York.",
-              },
-            ].map((faq) => (
+            {faqs.map((faq) => (
               <div
                 key={faq.q}
                 className="rounded-3xl border border-slate-200 bg-white p-8 shadow-sm"

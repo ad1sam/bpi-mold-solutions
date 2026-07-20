@@ -1,11 +1,15 @@
 import { SiteNav } from "../components/SiteNav";
 import { ContactForm } from "../components/ContactForm";
 import type { Metadata } from "next";
+import { JsonLd } from "../components/JsonLd";
+import { createMetadata } from "../lib/seo";
+import { breadcrumbSchema, localBusinessSchema } from "../lib/schema";
 
-export const metadata: Metadata = {
-  title: "Contact BPI Mold Solutions | Mold Remediation in New York",
+export const metadata: Metadata = createMetadata({
+  title: "Free Mold Inspection Estimate NYC",
   description:
-    "Contact BPI Mold Solutions to request mold removal, remediation, air quality testing, or emergency mold services across New York City and Long Island.",
+    "Contact BPI Mold Solutions for a free mold inspection estimate, mold remediation quote, emergency mold help, or indoor air quality testing across NYC and Long Island.",
+  path: "/contact",
   keywords: [
     "contact mold removal company",
     "mold remediation quote",
@@ -19,11 +23,20 @@ export const metadata: Metadata = {
     "Staten Island mold removal",
     "Long Island mold services",
   ],
-};
+});
 
 export default function ContactPage() {
   return (
     <main className="min-h-screen bg-[#F8FAFC] text-[#0F172A]">
+      <JsonLd
+        data={[
+          localBusinessSchema(),
+          breadcrumbSchema([
+            { name: "Home", path: "/" },
+            { name: "Contact", path: "/contact" },
+          ]),
+        ]}
+      />
       <SiteNav />
       <section className="page-top-offset bg-[#06164A] px-6 py-32 text-white md:px-16">
         <div className="mx-auto max-w-6xl">
@@ -37,7 +50,8 @@ export default function ContactPage() {
 
           <p className="mt-8 max-w-3xl text-xl leading-9 text-white/75">
             Contact BPI Mold Solutions for professional mold removal, remediation,
-            air quality testing, and emergency mold services across New York State.
+            air quality testing, and emergency mold services across New York City
+            and Long Island.
           </p>
         </div>
       </section>
@@ -73,8 +87,8 @@ export default function ContactPage() {
                 <div>
                   <p className="font-semibold text-[#0F172A]">Service Areas</p>
                   <p className="mt-2 leading-7">
-                    Brooklyn • Manhattan • Queens • Bronx • Long Island • New York
-                    State
+                    Brooklyn • Manhattan • Queens • Bronx • Staten Island •
+                    Long Island
                   </p>
                 </div>
 

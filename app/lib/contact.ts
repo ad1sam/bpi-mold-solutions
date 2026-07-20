@@ -1,4 +1,5 @@
 export const SERVICE_OPTIONS = [
+  { value: "mold-inspection", label: "Mold Inspection" },
   { value: "mold-removal", label: "Mold Removal" },
   { value: "emergency", label: "Emergency Mold Services" },
   { value: "air-quality", label: "Air Quality Testing" },

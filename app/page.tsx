@@ -7,21 +7,34 @@ import {
   Siren,
   Wind,
   Droplets,
+  Search,
 } from "lucide-react";
+import { JsonLd } from "./components/JsonLd";
 import { SiteNav } from "./components/SiteNav";
 import { HeroLeadForm } from "./components/HeroLeadForm";
 import { PHONE_DISPLAY, PHONE_HREF } from "./lib/site";
+import { createMetadata } from "./lib/seo";
+import {
+  breadcrumbSchema,
+  localBusinessSchema,
+  organizationSchema,
+  websiteSchema,
+} from "./lib/schema";
 
-export const metadata: Metadata = {
-  title: "Mold Removal & Remediation in New York | BPI Mold Solutions",
+export const metadata: Metadata = createMetadata({
+  title: "Mold Removal & Remediation NYC | BPI Mold Solutions",
   description:
-    "Professional mold removal, remediation, air quality testing, and emergency mold services across New York State including Brooklyn, Queens, Manhattan, Bronx, Staten Island, and Long Island.",
+    "BPI Mold Solutions provides mold inspection, removal, remediation, air quality testing, emergency mold services, and water-damage prevention across NYC and Long Island.",
+  path: "/",
+  absoluteTitle: true,
   keywords: [
-    "mold removal NY",
+    "mold inspection NYC",
+    "mold removal NYC",
     "mold remediation NYC",
-    "air quality testing New York",
-    "emergency mold services",
-    "commercial mold services",
+    "air quality testing NYC",
+    "emergency mold services NYC",
+    "commercial mold remediation NYC",
+    "water damage prevention NYC",
     "Brooklyn mold removal",
     "Queens mold removal",
     "Manhattan mold remediation",
@@ -29,15 +42,26 @@ export const metadata: Metadata = {
     "Staten Island mold removal",
     "Long Island mold removal",
   ],
-};
+});
 
 const services = [
+  {
+    title: "Mold Inspection",
+    href: "/mold-inspection",
+    icon: <Search className="h-7 w-7 text-[#445A2A]" />,
+    image: "/images/hero-2.png",
+    imageAlt: "Professional mold inspection and moisture assessment in a home",
+    description:
+      "Inspection support for visible mold, musty odors, water damage, and hidden moisture concerns.",
+  },
   {
     title: "Mold Removal",
     href: "/mold-removal",
     icon: <ShieldCheck className="h-7 w-7 text-[#445A2A]" />,
     image: "/images/mold-removal-service.png",
     imageAlt: "Mold remediation containment area with professional removal equipment",
+    description:
+      "Mold removal and remediation services for affected homes, apartments, and business spaces.",
   },
   {
     title: "Commercial Mold Services",
@@ -45,6 +69,8 @@ const services = [
     icon: <Building2 className="h-7 w-7 text-[#445A2A]" />,
     image: "/images/commercialmold.png",
     imageAlt: "Commercial mold remediation services for office buildings and business properties",
+    description:
+      "Commercial mold remediation support for offices, buildings, landlords, and property managers.",
   },
   {
     title: "Emergency Mold Services",
@@ -52,6 +78,8 @@ const services = [
     icon: <Siren className="h-7 w-7 text-[#445A2A]" />,
     image: "/images/emergencymold.png",
     imageAlt: "Emergency mold remediation area with professional containment and cleanup equipment",
+    description:
+      "Fast response for urgent mold growth, leaks, flooding, and active moisture problems.",
   },
   {
     title: "Air Quality Testing",
@@ -59,6 +87,8 @@ const services = [
     icon: <Wind className="h-7 w-7 text-[#445A2A]" />,
     image: "/images/airquality.png",
     imageAlt: "Indoor air quality testing equipment for mold inspection services",
+    description:
+      "Indoor air quality testing for mold spores, musty odors, and remediation planning.",
   },
   {
     title: "Water Damage Prevention",
@@ -66,6 +96,8 @@ const services = [
     icon: <Droplets className="h-7 w-7 text-[#445A2A]" />,
     image: "/images/watertesting.png",
     imageAlt: "Water damage prevention inspection with professional moisture testing equipment",
+    description:
+      "Moisture control and water-damage prevention recommendations to reduce mold risk.",
   },
 ];
 
@@ -90,6 +122,14 @@ const whyChoose = [
 export default function Home() {
   return (
     <main className="min-h-screen scroll-smooth bg-white text-[#0F172A]">
+      <JsonLd
+        data={[
+          organizationSchema(),
+          websiteSchema(),
+          localBusinessSchema(),
+          breadcrumbSchema([{ name: "Home", path: "/" }]),
+        ]}
+      />
       <SiteNav variant="hero" />
 
       {/* Hero */}
@@ -98,9 +138,12 @@ export default function Home() {
         className="relative overflow-hidden bg-[#06164A] px-4 pb-20 pt-28 sm:px-6 sm:pt-32 md:px-12 lg:pb-24 lg:pt-36"
       >
         <div className="absolute inset-0">
-          <img
+          <Image
             src="/images/hero-1.png"
             alt="BPI Mold Solutions technicians performing mold remediation in a home"
+            fill
+            preload
+            sizes="100vw"
             className="h-full w-full object-cover"
           />
         </div>
@@ -112,7 +155,7 @@ export default function Home() {
           <div className="grid items-center gap-10 lg:grid-cols-2 lg:gap-16">
             <div>
               <p className="text-sm font-medium text-[#94D62D]">
-                ★★★★★ 4.9 · 500+ customers served
+                Mold inspection • Remediation • Air quality testing
               </p>
 
               <h1 className="mt-4 text-3xl font-bold leading-tight tracking-tight text-white sm:text-4xl lg:text-5xl">
@@ -121,7 +164,8 @@ export default function Home() {
 
               <p className="mt-4 max-w-lg text-base leading-relaxed text-white/80 sm:text-lg">
                 Fast, safe, certified mold removal for homes and businesses
-                across New York. Free estimates — no obligation.
+                across New York City and Long Island. Free estimates — no
+                obligation.
               </p>
 
               <a
@@ -194,12 +238,11 @@ export default function Home() {
                   </h3>
 
                   <p className="mt-4 flex-1 leading-7 text-slate-600">
-                    Professional solutions focused on detection, remediation,
-                    prevention, and healthier indoor environments.
+                    {service.description}
                   </p>
 
                   <span className="mt-6 text-sm font-semibold text-[#445A2A] transition group-hover:text-[#94D62D]">
-                    Learn more →
+                    View {service.title.toLowerCase()} services →
                   </span>
                 </div>
               </a>
@@ -230,9 +273,11 @@ export default function Home() {
           <div className="grid gap-8 lg:grid-cols-2 lg:gap-10">
             <div className="overflow-hidden rounded-[2rem] border border-slate-200/60 bg-white shadow-[0_8px_30px_-8px_rgba(15,23,42,0.12)] transition duration-300 hover:-translate-y-1 hover:shadow-[0_20px_40px_-12px_rgba(15,23,42,0.15)]">
               <div className="relative aspect-[16/11] sm:aspect-[16/10]">
-                <img
+                <Image
                   src="/images/before.png"
-                  alt="Before mold remediation"
+                  alt="Visible mold staining before professional remediation"
+                  fill
+                  sizes="(max-width: 1024px) 100vw, 50vw"
                   className="h-full w-full object-cover"
                 />
                 <div className="absolute left-5 top-5 rounded-2xl bg-[#0F172A]/75 px-5 py-3 backdrop-blur-sm">
@@ -257,9 +302,11 @@ export default function Home() {
 
             <div className="overflow-hidden rounded-[2rem] border-2 border-[#94D62D]/35 bg-white shadow-[0_8px_30px_-8px_rgba(148,214,45,0.2)] ring-4 ring-[#94D62D]/10 transition duration-300 hover:-translate-y-1 hover:shadow-[0_24px_48px_-12px_rgba(148,214,45,0.25)]">
               <div className="relative aspect-[16/11] sm:aspect-[16/10]">
-                <img
+                <Image
                   src="/images/after.png"
-                  alt="After mold remediation"
+                  alt="Cleaned area after professional mold remediation"
+                  fill
+                  sizes="(max-width: 1024px) 100vw, 50vw"
                   className="h-full w-full object-cover"
                 />
                 <div className="absolute right-5 top-5 rounded-2xl bg-[#445A2A] px-5 py-3 shadow-lg">
@@ -330,15 +377,15 @@ export default function Home() {
             </p>
 
             <h2 className="text-3xl font-bold leading-tight tracking-tight text-[#0F172A] sm:text-4xl md:text-5xl">
-              Trusted Mold Removal Experts Serving New York State.
+              Trusted Mold Removal Experts Serving NYC and Long Island.
             </h2>
 
             <p className="mt-6 text-lg leading-8 text-slate-600">
               BPI Mold Solutions provides professional mold removal, mold testing,
               mold remediation, emergency mold services, and air quality solutions
-              for residential and commercial properties throughout New York,
-              including Brooklyn, Manhattan, Queens, the Bronx, Long Island, and
-              nearby areas.
+              for residential and commercial properties throughout New York City
+              and Long Island, including Brooklyn, Manhattan, Queens, the Bronx,
+              Staten Island, and nearby areas.
             </p>
           </div>
 
@@ -406,8 +453,8 @@ export default function Home() {
               <p className="mt-6 max-w-xl text-lg leading-8 text-[#06164A]/80">
                 BPI Mold Solutions provides trusted mold removal, remediation,
                 air quality testing, and emergency mold services across
-                New York State, including Brooklyn, Manhattan, Queens, the Bronx,
-                Long Island, and surrounding areas.
+                New York City and Long Island, including Brooklyn, Manhattan,
+                Queens, the Bronx, Staten Island, and surrounding areas.
               </p>
             </div>
 
@@ -447,8 +494,8 @@ export default function Home() {
                   <div>
                     <p className="font-semibold text-[#0F172A]">Service Areas</p>
                     <p className="mt-2 leading-7">
-                      Brooklyn • Manhattan • Queens • Bronx • Long Island • New
-                      York State
+                      Brooklyn • Manhattan • Queens • Bronx • Staten Island •
+                      Long Island
                     </p>
                   </div>
                 </div>
@@ -463,9 +510,11 @@ export default function Home() {
         <div className="mx-auto grid max-w-7xl gap-12 md:grid-cols-4">
           <div className="md:col-span-2">
             <Link href="/" className="inline-block">
-              <img
+              <Image
                 src="/images/logo.png"
                 alt="BPI Mold Solutions"
+                width={1280}
+                height={1163}
                 className="h-16 w-auto md:h-20"
               />
             </Link>
@@ -473,7 +522,7 @@ export default function Home() {
             <p className="mt-6 max-w-lg leading-8 text-white/60">
               BPI Mold Solutions provides professional mold removal, remediation,
               air quality testing, and emergency mold services throughout New York
-              State.
+              City and Long Island.
             </p>
           </div>
 
@@ -486,6 +535,9 @@ export default function Home() {
               </Link>
               <Link href="/services" className="transition hover:text-[#94D62D]">
                 Services
+              </Link>
+              <Link href="/locations" className="transition hover:text-[#94D62D]">
+                Locations
               </Link>
               <Link href="/about" className="transition hover:text-[#94D62D]">
                 About
@@ -515,6 +567,18 @@ export default function Home() {
               >
                 Emergency Mold Services
               </Link>
+              <Link
+                href="/commercial-mold-services"
+                className="transition hover:text-[#94D62D]"
+              >
+                Commercial Mold Services
+              </Link>
+              <Link
+                href="/water-damage-prevention"
+                className="transition hover:text-[#94D62D]"
+              >
+                Water Damage Prevention
+              </Link>
             </div>
           </div>
         </div>
@@ -523,8 +587,8 @@ export default function Home() {
           <p>© 2026 BPI Mold Solutions. All rights reserved.</p>
 
           <p>
-            Serving New York State • Brooklyn • Manhattan • Queens • Bronx • Long
-            Island
+            Serving New York City • Brooklyn • Manhattan • Queens • Bronx •
+            Staten Island • Long Island
           </p>
         </div>
       </footer>

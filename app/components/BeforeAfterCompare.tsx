@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { useState } from "react";
 
 type Props = {
@@ -22,9 +23,11 @@ export function BeforeAfterCompare({
   return (
     <div className="relative overflow-hidden rounded-[2rem] border border-[#94D62D]/30">
       <div className="relative aspect-[16/11] sm:aspect-[16/10] md:aspect-[16/9]">
-        <img
+        <Image
           src={beforeSrc}
           alt={beforeAlt}
+          fill
+          sizes="100vw"
           className="absolute inset-0 h-full w-full object-cover"
           draggable={false}
         />
@@ -34,9 +37,11 @@ export function BeforeAfterCompare({
           style={{ clipPath: `inset(0 ${100 - value}% 0 0)` }}
           aria-hidden="true"
         >
-          <img
+          <Image
             src={afterSrc}
             alt={afterAlt}
+            fill
+            sizes="100vw"
             className="absolute inset-0 h-full w-full object-cover"
             draggable={false}
           />
@@ -83,4 +88,3 @@ export function BeforeAfterCompare({
     </div>
   );
 }
-

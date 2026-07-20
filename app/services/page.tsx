@@ -1,19 +1,23 @@
 import type { Metadata } from "next";
 import Image from "next/image";
+import { JsonLd } from "../components/JsonLd";
 import { SiteNav } from "../components/SiteNav";
+import { createMetadata, locationPages } from "../lib/seo";
+import { breadcrumbSchema, faqSchema, serviceSchema } from "../lib/schema";
 
-export const metadata: Metadata = {
-  title: "Mold Services in New York | BPI Mold Solutions",
+export const metadata: Metadata = createMetadata({
+  title: "Mold Inspection, Removal & Remediation Services NYC",
   description:
-    "Professional mold removal, mold remediation, air quality testing, emergency mold services, commercial mold services, and water damage prevention across Staten Island, Brooklyn, Queens, Manhattan, Bronx, Long Island, and New York State.",
+    "Explore mold inspection, mold removal, remediation, air quality testing, emergency response, commercial mold services, and water-damage prevention for NYC and Long Island properties.",
+  path: "/services",
   keywords: [
-    "mold services New York",
-    "mold removal New York",
-    "mold remediation New York",
-    "air quality testing New York",
+    "mold services NYC",
+    "mold inspection NYC",
+    "mold removal NYC",
+    "mold remediation NYC",
+    "air quality testing NYC",
     "emergency mold services NYC",
-    "commercial mold remediation New York",
-    "water damage mold prevention",
+    "commercial mold remediation NYC",
     "Staten Island mold removal",
     "Brooklyn mold remediation",
     "Queens mold removal",
@@ -21,9 +25,17 @@ export const metadata: Metadata = {
     "Bronx mold removal",
     "Long Island mold remediation",
   ],
-};
+});
 
 const services = [
+  {
+    title: "Mold Inspection",
+    href: "/mold-inspection",
+    image: "/images/hero-2.png",
+    imageAlt: "Professional mold inspection and moisture assessment in a home",
+    description:
+      "Inspection support for visible mold, musty odors, water damage, and suspected hidden moisture.",
+  },
   {
     title: "Mold Removal",
     href: "/mold-removal",
@@ -66,19 +78,38 @@ const services = [
   },
 ];
 
-const areas = [
-  "Staten Island",
-  "Brooklyn",
-  "Queens",
-  "Manhattan",
-  "Bronx",
-  "Long Island",
-  "New York State",
+const faqs = [
+  {
+    q: "What is the difference between mold removal and mold remediation?",
+    a: "Mold removal focuses on removing visible mold, while mold remediation includes containment, cleaning, moisture source evaluation, and prevention steps designed to reduce future mold growth.",
+  },
+  {
+    q: "Do you provide emergency mold services?",
+    a: "Yes. BPI Mold Solutions provides fast response services for urgent mold concerns, water damage events, and active moisture problems.",
+  },
+  {
+    q: "Do you work with commercial properties?",
+    a: "Yes. We provide mold remediation services for commercial buildings, offices, rental properties, and business spaces.",
+  },
 ];
 
 export default function ServicesPage() {
   return (
     <main className="min-h-screen bg-white text-[#0F172A]">
+      <JsonLd
+        data={[
+          breadcrumbSchema([
+            { name: "Home", path: "/" },
+            { name: "Services", path: "/services" },
+          ]),
+          serviceSchema({
+            name: "Mold inspection, removal, remediation, and air quality services",
+            description: metadata.description as string,
+            path: "/services",
+          }),
+          faqSchema(faqs),
+        ]}
+      />
       <SiteNav />
 
       <section className="page-top-offset bg-[#06164A] px-6 py-32 text-white md:px-16">
@@ -94,7 +125,8 @@ export default function ServicesPage() {
           <p className="mt-8 max-w-3xl text-xl leading-9 text-white/75">
             BPI Mold Solutions provides professional mold removal, remediation,
             emergency mold services, commercial mold solutions, air quality testing,
-            and water damage prevention across New York State.
+            mold inspection, and water damage prevention across New York City
+            and Long Island.
           </p>
 
           <div className="mt-10">
@@ -102,7 +134,7 @@ export default function ServicesPage() {
               href="/contact"
               className="rounded-2xl bg-[#94D62D] px-8 py-5 font-semibold text-[#06164A] transition hover:bg-white"
             >
-              Request Service
+              Request a Mold Service Estimate
             </a>
           </div>
         </div>
@@ -147,7 +179,7 @@ export default function ServicesPage() {
                   </p>
 
                   <div className="mt-6 text-sm font-semibold text-[#445A2A] transition group-hover:text-[#94D62D]">
-                    Learn more →
+                    View {service.title.toLowerCase()} services →
                   </div>
                 </div>
               </a>
@@ -187,17 +219,18 @@ export default function ServicesPage() {
           <p className="mt-5 max-w-3xl text-lg leading-8 text-slate-600">
             BPI Mold Solutions serves homeowners, property managers, landlords,
             businesses, and commercial property owners across major New York
-            service areas.
+            City and Long Island service areas.
           </p>
 
           <div className="mt-10 flex flex-wrap gap-4">
-            {areas.map((area) => (
-              <span
-                key={area}
-                className="rounded-full border border-[#94D62D]/30 bg-white px-6 py-3 font-semibold text-[#445A2A] shadow-sm"
+            {locationPages.map((area) => (
+              <a
+                key={area.slug}
+                href={`/locations/${area.slug}`}
+                className="rounded-full border border-[#94D62D]/30 bg-white px-6 py-3 font-semibold text-[#445A2A] shadow-sm transition hover:border-[#445A2A]"
               >
-                {area}
-              </span>
+                {area.name}
+              </a>
             ))}
           </div>
         </div>
@@ -210,20 +243,7 @@ export default function ServicesPage() {
           </h2>
 
           <div className="mt-10 space-y-6">
-            {[
-              {
-                q: "What is the difference between mold removal and mold remediation?",
-                a: "Mold removal focuses on removing visible mold, while mold remediation includes containment, cleaning, moisture source evaluation, and prevention steps designed to reduce future mold growth.",
-              },
-              {
-                q: "Do you provide emergency mold services?",
-                a: "Yes. BPI Mold Solutions provides fast response services for urgent mold concerns, water damage events, and active moisture problems.",
-              },
-              {
-                q: "Do you work with commercial properties?",
-                a: "Yes. We provide mold remediation services for commercial buildings, offices, rental properties, and business spaces.",
-              },
-            ].map((item) => (
+            {faqs.map((item) => (
               <div
                 key={item.q}
                 className="rounded-3xl border border-slate-200 bg-white p-8 shadow-sm"

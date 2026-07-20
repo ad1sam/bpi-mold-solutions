@@ -1,14 +1,18 @@
 import { SiteNav } from "../components/SiteNav";
 import Image from "next/image";
 import type { Metadata } from "next";
+import { JsonLd } from "../components/JsonLd";
+import { createMetadata } from "../lib/seo";
+import { breadcrumbSchema, faqSchema, serviceSchema } from "../lib/schema";
 
-export const metadata: Metadata = {
-  title: "Water Damage Prevention | Moisture Control in New York",
+export const metadata: Metadata = createMetadata({
+  title: "Water Damage Prevention & Moisture Control NYC",
   description:
-    "Prevent mold growth with moisture control and water damage prevention solutions. Serving Brooklyn, Queens, Manhattan, Bronx, Staten Island, and Long Island across New York State.",
+    "Moisture control and water-damage prevention services that help reduce mold risk for homes, apartments, and commercial properties across NYC and Long Island.",
+  path: "/water-damage-prevention",
   keywords: [
-    "water damage prevention",
-    "moisture control New York",
+    "water damage prevention NYC",
+    "moisture control NYC",
     "mold prevention",
     "humidity control",
     "leak detection mold prevention",
@@ -20,7 +24,7 @@ export const metadata: Metadata = {
     "Staten Island mold prevention",
     "Long Island moisture control",
   ],
-};
+});
 
 const preventionServices = [
   "Moisture source investigation",
@@ -47,12 +51,44 @@ const areas = [
   "Manhattan",
   "Bronx",
   "Long Island",
-  "New York State",
+];
+
+const faqs = [
+  {
+    q: "Can water damage prevention reduce mold risk?",
+    a: "Yes. Reducing moisture, fixing leaks, and improving ventilation can help limit the conditions that allow mold to grow.",
+  },
+  {
+    q: "What areas of a property are most vulnerable?",
+    a: "Basements, bathrooms, kitchens, attics, crawl spaces, HVAC areas, and rooms with past leaks often need closer moisture review.",
+  },
+  {
+    q: "Should I call after a small leak?",
+    a: "A small leak can still create hidden moisture inside walls, flooring, or ceilings, so a moisture review can help prevent larger problems.",
+  },
 ];
 
 export default function WaterDamagePreventionPage() {
   return (
     <main className="min-h-screen bg-white text-[#0F172A]">
+      <JsonLd
+        data={[
+          breadcrumbSchema([
+            { name: "Home", path: "/" },
+            { name: "Services", path: "/services" },
+            {
+              name: "Water Damage Prevention",
+              path: "/water-damage-prevention",
+            },
+          ]),
+          serviceSchema({
+            name: "Water Damage Prevention and Moisture Control",
+            description: metadata.description as string,
+            path: "/water-damage-prevention",
+          }),
+          faqSchema(faqs),
+        ]}
+      />
       <SiteNav />
       <div className="mx-auto max-w-7xl px-6 pb-24 page-top-offset">
         <div className="grid gap-12 lg:grid-cols-[minmax(0,1fr)_minmax(360px,0.8fr)] lg:items-center">
@@ -67,7 +103,8 @@ export default function WaterDamagePreventionPage() {
 
             <p className="mt-6 max-w-3xl text-lg leading-8 text-slate-600">
               Prevent mold before it spreads with moisture control, water damage
-              prevention, and long-term protection solutions.
+              prevention, and long-term protection solutions across New York
+              City and Long Island.
             </p>
           </div>
 
@@ -80,6 +117,7 @@ export default function WaterDamagePreventionPage() {
               sizes="(max-width: 1024px) 100vw, 40vw"
               className="h-full min-h-[360px] w-full object-cover"
               unoptimized
+              preload
             />
           </div>
         </div>
@@ -161,7 +199,7 @@ export default function WaterDamagePreventionPage() {
 
           <p className="mt-5 max-w-3xl text-lg leading-8 text-slate-600">
             We provide moisture control and mold prevention guidance across New
-            York State.
+            York City and Long Island.
           </p>
 
           <div className="mt-10 flex flex-wrap gap-4">
@@ -184,20 +222,7 @@ export default function WaterDamagePreventionPage() {
           </h2>
 
           <div className="mt-10 space-y-6">
-            {[
-              {
-                q: "Can water damage prevention reduce mold risk?",
-                a: "Yes. Reducing moisture, fixing leaks, and improving ventilation can help limit the conditions that allow mold to grow.",
-              },
-              {
-                q: "What areas of a property are most vulnerable?",
-                a: "Basements, bathrooms, kitchens, attics, crawl spaces, HVAC areas, and rooms with past leaks often need closer moisture review.",
-              },
-              {
-                q: "Should I call after a small leak?",
-                a: "A small leak can still create hidden moisture inside walls, flooring, or ceilings, so a moisture review can help prevent larger problems.",
-              },
-            ].map((faq) => (
+            {faqs.map((faq) => (
               <div
                 key={faq.q}
                 className="rounded-3xl border border-slate-200 bg-white p-8 shadow-sm"

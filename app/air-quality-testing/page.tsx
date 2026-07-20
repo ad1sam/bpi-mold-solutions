@@ -1,17 +1,20 @@
 import { SiteNav } from "../components/SiteNav";
 import Image from "next/image";
 import type { Metadata } from "next";
+import { JsonLd } from "../components/JsonLd";
+import { createMetadata } from "../lib/seo";
+import { breadcrumbSchema, serviceSchema } from "../lib/schema";
 
-export const metadata: Metadata = {
-  title: "Air Quality Testing in New York | BPI Mold Solutions",
+export const metadata: Metadata = createMetadata({
+  title: "Indoor Air Quality Testing NYC",
   description:
-    "Professional indoor air quality testing in New York to detect mold spores, moisture-related air concerns, and indoor air quality issues across Staten Island, Brooklyn, Queens, Manhattan, Bronx, and Long Island.",
+    "Professional indoor air quality testing for mold spores, musty odors, moisture concerns, and remediation planning across NYC and Long Island.",
+  path: "/air-quality-testing",
   keywords: [
-    "air quality testing New York",
     "indoor air quality testing NYC",
-    "mold spore testing New York",
+    "air quality testing NYC",
     "mold air testing NYC",
-    "IAQ testing New York",
+    "mold spore testing NYC",
     "Staten Island air quality testing",
     "Brooklyn air quality testing",
     "Queens mold air testing",
@@ -19,7 +22,7 @@ export const metadata: Metadata = {
     "Bronx air quality testing",
     "Long Island air quality testing",
   ],
-};
+});
 
 const benefits = [
   "Detect possible airborne mold spores",
@@ -35,12 +38,25 @@ const areas = [
   "Manhattan",
   "Bronx",
   "Long Island",
-  "New York State",
 ];
 
 export default function AirQualityTestingPage() {
   return (
     <main className="min-h-screen bg-white text-[#0F172A]">
+      <JsonLd
+        data={[
+          breadcrumbSchema([
+            { name: "Home", path: "/" },
+            { name: "Services", path: "/services" },
+            { name: "Air Quality Testing", path: "/air-quality-testing" },
+          ]),
+          serviceSchema({
+            name: "Indoor Air Quality Testing",
+            description: metadata.description as string,
+            path: "/air-quality-testing",
+          }),
+        ]}
+      />
       <SiteNav />
 
       <section className="page-top-offset mx-auto grid max-w-7xl gap-12 px-6 pb-20 md:grid-cols-2 md:px-16">
@@ -56,7 +72,8 @@ export default function AirQualityTestingPage() {
           <p className="mt-6 text-lg leading-8 text-slate-600">
             BPI Mold Solutions provides professional indoor air quality testing
             to help detect mold spores, moisture-related air concerns, and
-            hidden environmental issues inside homes and commercial properties.
+            hidden environmental issues inside homes and commercial properties
+            across New York City and Long Island.
           </p>
 
           <a
@@ -75,6 +92,7 @@ export default function AirQualityTestingPage() {
             height={768}
             sizes="(max-width: 768px) 100vw, 50vw"
             className="h-full min-h-[420px] w-full object-cover"
+            preload
           />
         </div>
       </section>
@@ -144,7 +162,7 @@ export default function AirQualityTestingPage() {
 
           <p className="mt-5 max-w-3xl text-lg leading-8 text-slate-600">
             We provide indoor air quality testing and mold-related air quality
-            services across New York State.
+            services across New York City and Long Island.
           </p>
 
           <div className="mt-10 flex flex-wrap gap-4">

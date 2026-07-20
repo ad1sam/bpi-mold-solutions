@@ -1,18 +1,21 @@
 import { SiteNav } from "../components/SiteNav";
 import Image from "next/image";
 import type { Metadata } from "next";
+import { JsonLd } from "../components/JsonLd";
+import { createMetadata } from "../lib/seo";
+import { breadcrumbSchema, faqSchema, serviceSchema } from "../lib/schema";
 
-export const metadata: Metadata = {
-  title: "Emergency Mold Services | Fast Response in New York",
+export const metadata: Metadata = createMetadata({
+  title: "24/7 Emergency Mold Removal NYC",
   description:
-    "Rapid emergency mold services for urgent mold growth and moisture events. Serving Brooklyn, Queens, Manhattan, Bronx, Staten Island, and Long Island with quick scheduling.",
+    "Fast emergency mold services for urgent mold growth, leaks, flooding, and moisture events in Brooklyn, Queens, Manhattan, Bronx, Staten Island, and Long Island.",
+  path: "/emergency-mold-services",
   keywords: [
-    "emergency mold services",
-    "24/7 mold removal",
+    "emergency mold services NYC",
+    "24/7 emergency mold removal NYC",
     "urgent mold remediation",
     "same day mold remediation",
     "water damage mold prevention",
-    "NYC emergency mold services",
     "Brooklyn emergency mold removal",
     "Queens emergency mold services",
     "Manhattan emergency mold remediation",
@@ -20,7 +23,7 @@ export const metadata: Metadata = {
     "Staten Island emergency mold services",
     "Long Island emergency mold removal",
   ],
-};
+});
 
 const responseSteps = [
   "Urgent moisture and mold assessment",
@@ -47,12 +50,44 @@ const areas = [
   "Manhattan",
   "Bronx",
   "Long Island",
-  "New York State",
+];
+
+const faqs = [
+  {
+    q: "How quickly should mold be checked after water damage?",
+    a: "Mold concerns should be assessed as soon as possible after water damage, leaks, or sustained moisture because growth can spread into hidden materials.",
+  },
+  {
+    q: "Can emergency mold service help with active leaks?",
+    a: "We can assess mold and moisture conditions, but active plumbing, roofing, or structural leaks should also be repaired by the appropriate licensed trade.",
+  },
+  {
+    q: "Do you help commercial properties with emergency concerns?",
+    a: "Yes. We help homes, offices, rental properties, and commercial spaces respond to urgent mold and moisture issues.",
+  },
 ];
 
 export default function EmergencyMoldServicesPage() {
   return (
     <main className="min-h-screen bg-white text-[#0F172A]">
+      <JsonLd
+        data={[
+          breadcrumbSchema([
+            { name: "Home", path: "/" },
+            { name: "Services", path: "/services" },
+            {
+              name: "Emergency Mold Services",
+              path: "/emergency-mold-services",
+            },
+          ]),
+          serviceSchema({
+            name: "Emergency Mold Services",
+            description: metadata.description as string,
+            path: "/emergency-mold-services",
+          }),
+          faqSchema(faqs),
+        ]}
+      />
       <SiteNav />
       <div className="mx-auto max-w-7xl px-6 pb-24 page-top-offset">
         <div className="grid gap-12 lg:grid-cols-[minmax(0,1fr)_minmax(360px,0.8fr)] lg:items-center">
@@ -67,7 +102,8 @@ export default function EmergencyMoldServicesPage() {
 
             <p className="mt-6 max-w-3xl text-lg leading-8 text-slate-600">
               Fast emergency mold response services for urgent mold growth, water
-              damage, and indoor air safety concerns.
+              damage, and indoor air concerns across New York City and Long
+              Island.
             </p>
           </div>
 
@@ -79,6 +115,7 @@ export default function EmergencyMoldServicesPage() {
               height={768}
               sizes="(max-width: 1024px) 100vw, 40vw"
               className="h-full min-h-[360px] w-full object-cover"
+              preload
             />
           </div>
         </div>
@@ -161,7 +198,7 @@ export default function EmergencyMoldServicesPage() {
 
           <p className="mt-5 max-w-3xl text-lg leading-8 text-slate-600">
             We provide urgent mold and moisture response services across New
-            York State.
+            York City and Long Island.
           </p>
 
           <div className="mt-10 flex flex-wrap gap-4">
@@ -184,20 +221,7 @@ export default function EmergencyMoldServicesPage() {
           </h2>
 
           <div className="mt-10 space-y-6">
-            {[
-              {
-                q: "How quickly should mold be checked after water damage?",
-                a: "Mold concerns should be assessed as soon as possible after water damage, leaks, or sustained moisture because growth can spread into hidden materials.",
-              },
-              {
-                q: "Can emergency mold service help with active leaks?",
-                a: "We can assess mold and moisture conditions, but active plumbing, roofing, or structural leaks should also be repaired by the appropriate licensed trade.",
-              },
-              {
-                q: "Do you help commercial properties with emergency concerns?",
-                a: "Yes. We help homes, offices, rental properties, and commercial spaces respond to urgent mold and moisture issues.",
-              },
-            ].map((faq) => (
+            {faqs.map((faq) => (
               <div
                 key={faq.q}
                 className="rounded-3xl border border-slate-200 bg-white p-8 shadow-sm"

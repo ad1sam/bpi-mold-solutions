@@ -1,18 +1,21 @@
 import { SiteNav } from "../components/SiteNav";
 import Image from "next/image";
 import type { Metadata } from "next";
+import { JsonLd } from "../components/JsonLd";
+import { createMetadata } from "../lib/seo";
+import { breadcrumbSchema, serviceSchema } from "../lib/schema";
 
-export const metadata: Metadata = {
-  title: "Mold Removal Services | Safe Remediation in New York",
+export const metadata: Metadata = createMetadata({
+  title: "Professional Mold Removal NYC",
   description:
-    "Professional mold removal and remediation to eliminate visible and hidden mold. Serving Brooklyn, Queens, Manhattan, Bronx, Staten Island, and Long Island with fast, reliable service.",
+    "Professional mold removal and remediation for visible mold, hidden moisture, and indoor air concerns across New York City and Long Island.",
+  path: "/mold-removal",
   keywords: [
-    "mold removal New York",
-    "mold remediation NY",
-    "black mold removal",
-    "mold cleanup",
+    "mold removal NYC",
+    "mold remediation NYC",
+    "professional mold removal",
+    "mold cleanup NYC",
     "mold remediation company NYC",
-    "mold removal near me",
     "Brooklyn mold removal",
     "Queens mold removal",
     "Manhattan mold removal",
@@ -20,11 +23,25 @@ export const metadata: Metadata = {
     "Staten Island mold removal",
     "Long Island mold removal",
   ],
-};
+});
 
 export default function MoldRemovalPage() {
   return (
     <main className="min-h-screen bg-white text-[#0F172A]">
+      <JsonLd
+        data={[
+          breadcrumbSchema([
+            { name: "Home", path: "/" },
+            { name: "Services", path: "/services" },
+            { name: "Mold Removal", path: "/mold-removal" },
+          ]),
+          serviceSchema({
+            name: "Mold Removal and Remediation",
+            description: metadata.description as string,
+            path: "/mold-removal",
+          }),
+        ]}
+      />
       <SiteNav />
       <div className="mx-auto max-w-7xl px-6 pb-24 page-top-offset">
         <div className="grid gap-12 lg:grid-cols-[minmax(0,1fr)_minmax(360px,0.8fr)] lg:items-center">
@@ -40,8 +57,8 @@ export default function MoldRemovalPage() {
           <p className="mt-6 max-w-3xl text-lg leading-8 text-slate-600">
             BPI Mold Solutions provides safe, effective, and professional mold
             removal services designed to protect your property, improve indoor air
-            quality, and restore healthy living environments throughout New York
-            State.
+            quality, and support homes and businesses throughout New York City
+            and Long Island.
           </p>
         </div>
 
@@ -53,6 +70,7 @@ export default function MoldRemovalPage() {
               height={768}
               sizes="(max-width: 1024px) 100vw, 40vw"
               className="h-full min-h-[360px] w-full object-cover"
+              preload
             />
           </div>
         </div>
@@ -101,7 +119,7 @@ export default function MoldRemovalPage() {
               <p className="mt-6 text-lg leading-8 text-[#06164A]/80">
                 BPI Mold Solutions provides professional mold remediation services
                 across Brooklyn, Manhattan, Queens, the Bronx, Long Island, and
-                surrounding New York areas with fast response times and advanced
+                surrounding NYC areas with fast response times and professional
                 remediation solutions.
               </p>
             </div>
@@ -125,8 +143,8 @@ export default function MoldRemovalPage() {
                 <div>
                   <p className="font-semibold text-[#0F172A]">Service Areas</p>
                   <p className="mt-2 leading-7">
-                    Brooklyn • Manhattan • Queens • Bronx • Long Island • New
-                    York State
+                    Brooklyn • Manhattan • Queens • Bronx • Staten Island •
+                    Long Island
                   </p>
                 </div>
 
@@ -134,7 +152,7 @@ export default function MoldRemovalPage() {
                   href="/contact"
                   className="mt-4 block w-full rounded-2xl bg-[#06164A] px-8 py-5 text-center font-semibold text-white transition hover:bg-[#0F172A]"
                 >
-                  Get Started
+                  Request a Mold Removal Quote
                 </a>
               </div>
             </div>

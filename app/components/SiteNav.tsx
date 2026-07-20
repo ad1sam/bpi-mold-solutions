@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { Phone } from "lucide-react";
 import { PHONE_DISPLAY, PHONE_HREF } from "../lib/site";
 
@@ -8,6 +9,7 @@ type SiteNavProps = {
 
 const navLinks = [
   { href: "/services", label: "Services" },
+  { href: "/locations", label: "Locations" },
   { href: "/guarantee", label: "Guarantee" },
   { href: "/about", label: "About" },
   { href: "/contact", label: "Contact" },
@@ -28,9 +30,11 @@ export function SiteNav({ variant = "light" }: SiteNavProps) {
       >
         <div className="mx-auto flex h-24 max-w-7xl items-center justify-between gap-4 px-4 sm:px-6 lg:px-8">
           <Link href="/" className="shrink-0">
-            <img
+            <Image
               src="/images/logo.png"
               alt="BPI Mold Solutions"
+              width={1280}
+              height={1163}
               className="h-16 w-auto sm:h-[4.5rem]"
             />
           </Link>
@@ -70,7 +74,7 @@ export function SiteNav({ variant = "light" }: SiteNavProps) {
               <span>Call Now</span>
             </a>
             <Link
-              href="/#estimate"
+              href="/contact"
               className={`hidden rounded-lg border px-4 py-2.5 text-sm font-semibold transition md:inline-flex ${
                 isHero
                   ? "border-white/25 text-white hover:bg-white/10"
@@ -116,7 +120,7 @@ export function SiteNav({ variant = "light" }: SiteNavProps) {
                     </Link>
                   ))}
                   <Link
-                    href="/#estimate"
+                    href="/contact"
                     className="mt-1 rounded-lg bg-[#94D62D] px-3 py-2.5 text-center font-semibold text-[#06164A]"
                   >
                     Free Estimate
