@@ -76,9 +76,14 @@ export const metadata: Metadata = {
       "max-video-preview": -1,
     },
   },
+  
+  verification: {
+    google: "rF9tV-035yhbWhBsv7Mwe8hrQ2LBN_WBRk73lNMQeAU",
+  },
+  
   applicationName: SITE_NAME,
   category: "home services",
-};
+  };
 
 export default function RootLayout({
   children,
