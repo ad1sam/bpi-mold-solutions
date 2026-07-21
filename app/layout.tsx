@@ -22,12 +22,15 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
+
   title: {
     default: "Mold Removal & Remediation NYC | BPI Mold Solutions",
     template: "%s | BPI Mold Solutions",
   },
+
   description:
     "BPI Mold Solutions provides mold inspection, mold removal, mold remediation, air quality testing, emergency mold services, commercial mold services, and water-damage prevention across New York City and Long Island.",
+
   keywords: [
     "mold inspection NYC",
     "mold removal NYC",
@@ -38,9 +41,11 @@ export const metadata: Metadata = {
     "water damage prevention",
     ...SERVICE_AREAS,
   ],
+
   alternates: {
     canonical: SITE_URL,
   },
+
   openGraph: {
     title: "Mold Removal & Remediation NYC | BPI Mold Solutions",
     description:
@@ -58,6 +63,7 @@ export const metadata: Metadata = {
       },
     ],
   },
+
   twitter: {
     card: "summary_large_image",
     title: "Mold Removal & Remediation NYC | BPI Mold Solutions",
@@ -65,6 +71,7 @@ export const metadata: Metadata = {
       "Mold inspection, removal, remediation, air quality testing, emergency response, and moisture prevention across NYC and Long Island.",
     images: [absoluteUrl(BRAND_IMAGE.url)],
   },
+
   robots: {
     index: true,
     follow: true,
@@ -76,14 +83,14 @@ export const metadata: Metadata = {
       "max-video-preview": -1,
     },
   },
-  
+
   verification: {
     google: "rF9tV-035yhbWhBsv7Mwe8hrQ2LBN_WBRk73lNMQeAU",
   },
-  
+
   applicationName: SITE_NAME,
   category: "home services",
-  };
+};
 
 export default function RootLayout({
   children,
@@ -95,10 +102,15 @@ export default function RootLayout({
       lang="en"
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
+      <head>
+        <meta
+          name="google-site-verification"
+          content="rF9tV-035yhbWhBsv7Mwe8hrQ2LBN_WBRk73lNMQeAU"
+        />
+      </head>
+
       <body className="flex min-h-full flex-col pb-16 md:pb-0">
-        <main className="flex-1">
-          {children}
-        </main>
+        <main className="flex-1">{children}</main>
 
         <StickyCtaBar />
 
@@ -109,7 +121,8 @@ export default function RootLayout({
             </p>
 
             <p className="mt-2 text-sm text-slate-400">
-              Serving Staten Island, Brooklyn, Manhattan, Queens, Bronx, and Long Island
+              Serving Staten Island, Brooklyn, Manhattan, Queens, Bronx, and
+              Long Island
             </p>
           </div>
         </footer>
