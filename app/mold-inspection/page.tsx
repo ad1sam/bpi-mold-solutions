@@ -1,14 +1,16 @@
 import type { Metadata } from "next";
 import Image from "next/image";
+import { Breadcrumbs } from "../components/Breadcrumbs";
 import { JsonLd } from "../components/JsonLd";
+import { ServiceLinks } from "../components/ServiceLinks";
 import { SiteNav } from "../components/SiteNav";
 import { createMetadata } from "../lib/seo";
 import { breadcrumbSchema, faqSchema, serviceSchema } from "../lib/schema";
 
 export const metadata: Metadata = createMetadata({
-  title: "Professional Mold Inspection NYC",
+  title: "Mold Inspection NYC | HPD Mold Concerns",
   description:
-    "Schedule professional mold inspection for homes, apartments, commercial properties, and moisture concerns across Brooklyn, Queens, Manhattan, Bronx, Staten Island, and Long Island.",
+    "Schedule mold inspection in NYC for homes, apartments, commercial properties, HPD concerns, musty odors, water damage, hidden moisture, and mold risks.",
   path: "/mold-inspection",
   keywords: [
     "mold inspection NYC",
@@ -20,6 +22,7 @@ export const metadata: Metadata = createMetadata({
     "Staten Island mold inspection",
     "Long Island mold inspection",
     "mold moisture inspection",
+    "HPD mold inspection",
   ],
 });
 
@@ -110,6 +113,14 @@ export default function MoldInspectionPage() {
           />
         </div>
       </section>
+
+      <Breadcrumbs
+        items={[
+          { name: "Home", path: "/" },
+          { name: "Services", path: "/services" },
+          { name: "Mold Inspection", path: "/mold-inspection" },
+        ]}
+      />
 
       <section className="bg-[#F8FAFC] px-6 py-20 md:px-16">
         <div className="mx-auto max-w-7xl">
@@ -204,6 +215,7 @@ export default function MoldInspectionPage() {
           </a>
         </div>
       </section>
+      <ServiceLinks currentPath="/mold-inspection" />
     </main>
   );
 }

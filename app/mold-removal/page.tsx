@@ -1,14 +1,16 @@
 import { SiteNav } from "../components/SiteNav";
 import Image from "next/image";
 import type { Metadata } from "next";
+import { Breadcrumbs } from "../components/Breadcrumbs";
 import { JsonLd } from "../components/JsonLd";
+import { ServiceLinks } from "../components/ServiceLinks";
 import { createMetadata } from "../lib/seo";
 import { breadcrumbSchema, serviceSchema } from "../lib/schema";
 
 export const metadata: Metadata = createMetadata({
-  title: "Professional Mold Removal NYC",
+  title: "Mold Removal NYC | Black Mold Remediation",
   description:
-    "Professional mold removal and remediation for visible mold, hidden moisture, and indoor air concerns across New York City and Long Island.",
+    "Professional mold removal in NYC for visible mold, black mold concerns, hidden moisture, water damage, apartments, homes, and commercial spaces today.",
   path: "/mold-removal",
   keywords: [
     "mold removal NYC",
@@ -16,6 +18,8 @@ export const metadata: Metadata = createMetadata({
     "professional mold removal",
     "mold cleanup NYC",
     "mold remediation company NYC",
+    "black mold removal",
+    "EPA mold remediation",
     "Brooklyn mold removal",
     "Queens mold removal",
     "Manhattan mold removal",
@@ -74,6 +78,14 @@ export default function MoldRemovalPage() {
             />
           </div>
         </div>
+
+        <Breadcrumbs
+          items={[
+            { name: "Home", path: "/" },
+            { name: "Services", path: "/services" },
+            { name: "Mold Removal", path: "/mold-removal" },
+          ]}
+        />
 
         <div className="mt-16 grid gap-8 md:mt-20 md:grid-cols-3">
           <div className="rounded-3xl border border-slate-200/80 bg-[#F8FAFC] p-8 shadow-sm">
@@ -159,6 +171,7 @@ export default function MoldRemovalPage() {
           </div>
         </div>
       </div>
+      <ServiceLinks currentPath="/mold-removal" />
     </main>
   );
 }

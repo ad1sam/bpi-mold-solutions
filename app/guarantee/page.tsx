@@ -5,9 +5,9 @@ import { createMetadata } from "../lib/seo";
 import { breadcrumbSchema } from "../lib/schema";
 
 export const metadata: Metadata = createMetadata({
-  title: "Mold Remediation Guarantee",
+  title: "Mold Remediation Guarantee NYC",
   description:
-    "Read about the BPI Mold Solutions remediation guarantee, coverage conditions, and customer support for treated mold remediation areas.",
+    "Review the BPI Mold Solutions mold remediation guarantee, coverage conditions, support process, and service expectations for treated areas in New York.",
   path: "/guarantee",
   keywords: [
     "mold remediation guarantee",

@@ -1,14 +1,15 @@
 import type { Metadata } from "next";
 import Image from "next/image";
+import { Breadcrumbs } from "../components/Breadcrumbs";
 import { JsonLd } from "../components/JsonLd";
 import { SiteNav } from "../components/SiteNav";
-import { createMetadata, locationPages } from "../lib/seo";
+import { createMetadata, locationPages, serviceLandingPages } from "../lib/seo";
 import { breadcrumbSchema, faqSchema, serviceSchema } from "../lib/schema";
 
 export const metadata: Metadata = createMetadata({
-  title: "Mold Inspection, Removal & Remediation Services NYC",
+  title: "Mold Remediation Services NYC",
   description:
-    "Explore mold inspection, mold removal, remediation, air quality testing, emergency response, commercial mold services, and water-damage prevention for NYC and Long Island properties.",
+    "Explore mold inspection, mold removal, remediation, air quality testing, emergency mold services, and moisture prevention across NYC and Long Island NY.",
   path: "/services",
   keywords: [
     "mold services NYC",
@@ -24,6 +25,8 @@ export const metadata: Metadata = createMetadata({
     "Manhattan mold services",
     "Bronx mold removal",
     "Long Island mold remediation",
+    "EPA mold remediation",
+    "HPD mold inspection",
   ],
 });
 
@@ -91,6 +94,10 @@ const faqs = [
     q: "Do you work with commercial properties?",
     a: "Yes. We provide mold remediation services for commercial buildings, offices, rental properties, and business spaces.",
   },
+  {
+    q: "How much does mold remediation cost?",
+    a: "Cost depends on affected area size, access, moisture source, containment needs, and damaged materials. We inspect the property and provide a clear quote before work begins.",
+  },
 ];
 
 export default function ServicesPage() {
@@ -140,6 +147,13 @@ export default function ServicesPage() {
         </div>
       </section>
 
+      <Breadcrumbs
+        items={[
+          { name: "Home", path: "/" },
+          { name: "Services", path: "/services" },
+        ]}
+      />
+
       <section className="bg-[#F8FAFC] px-6 py-20 md:px-16">
         <div className="mx-auto max-w-7xl">
           <h2 className="text-3xl font-bold md:text-4xl">
@@ -167,7 +181,6 @@ export default function ServicesPage() {
                     height={768}
                     sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
                     className="h-56 w-full object-cover"
-                    unoptimized={service.image === "/images/watertesting.png"}
                   />
                 )}
 
@@ -230,6 +243,32 @@ export default function ServicesPage() {
                 className="rounded-full border border-[#94D62D]/30 bg-white px-6 py-3 font-semibold text-[#445A2A] shadow-sm transition hover:border-[#445A2A]"
               >
                 {area.name}
+              </a>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="bg-white px-6 py-20 md:px-16">
+        <div className="mx-auto max-w-7xl">
+          <h2 className="text-3xl font-bold md:text-4xl">
+            Local Mold Service Pages
+          </h2>
+
+          <p className="mt-5 max-w-3xl text-lg leading-8 text-slate-600">
+            These pages match the most specific mold inspection, testing,
+            removal, emergency, commercial, prevention, and indoor air quality
+            searches BPI Mold Solutions serves across NYC and Long Island.
+          </p>
+
+          <div className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+            {serviceLandingPages.map((page) => (
+              <a
+                key={page.slug}
+                href={`/services/${page.slug}`}
+                className="rounded-2xl border border-slate-200 bg-[#F8FAFC] p-6 font-semibold text-[#445A2A] transition hover:border-[#94D62D] hover:bg-white"
+              >
+                {page.title}
               </a>
             ))}
           </div>

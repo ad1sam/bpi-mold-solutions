@@ -1,18 +1,21 @@
 import { SiteNav } from "../components/SiteNav";
 import Image from "next/image";
 import type { Metadata } from "next";
+import { Breadcrumbs } from "../components/Breadcrumbs";
 import { JsonLd } from "../components/JsonLd";
+import { ServiceLinks } from "../components/ServiceLinks";
 import { createMetadata } from "../lib/seo";
 import { breadcrumbSchema, faqSchema, serviceSchema } from "../lib/schema";
 
 export const metadata: Metadata = createMetadata({
   title: "24/7 Emergency Mold Removal NYC",
   description:
-    "Fast emergency mold services for urgent mold growth, leaks, flooding, and moisture events in Brooklyn, Queens, Manhattan, Bronx, Staten Island, and Long Island.",
+    "Fast emergency mold removal in NYC for active mold growth, leaks, flooding, water damage, musty odors, and urgent indoor air concerns anytime for homes.",
   path: "/emergency-mold-services",
   keywords: [
     "emergency mold services NYC",
     "24/7 emergency mold removal NYC",
+    "emergency mold removal",
     "urgent mold remediation",
     "same day mold remediation",
     "water damage mold prevention",
@@ -120,6 +123,17 @@ export default function EmergencyMoldServicesPage() {
           </div>
         </div>
       </div>
+
+      <Breadcrumbs
+        items={[
+          { name: "Home", path: "/" },
+          { name: "Services", path: "/services" },
+          {
+            name: "Emergency Mold Services",
+            path: "/emergency-mold-services",
+          },
+        ]}
+      />
 
       <section className="bg-[#F8FAFC] px-6 py-20 md:px-16">
         <div className="mx-auto max-w-7xl">
@@ -253,6 +267,7 @@ export default function EmergencyMoldServicesPage() {
           </a>
         </div>
       </section>
+      <ServiceLinks currentPath="/emergency-mold-services" />
     </main>
   );
 }

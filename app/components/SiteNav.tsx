@@ -10,6 +10,7 @@ type SiteNavProps = {
 const navLinks = [
   { href: "/services", label: "Services" },
   { href: "/locations", label: "Locations" },
+  { href: "/blog", label: "Blog" },
   { href: "/guarantee", label: "Guarantee" },
   { href: "/about", label: "About" },
   { href: "/contact", label: "Contact" },

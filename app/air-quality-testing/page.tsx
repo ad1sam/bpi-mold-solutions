@@ -1,20 +1,23 @@
 import { SiteNav } from "../components/SiteNav";
 import Image from "next/image";
 import type { Metadata } from "next";
+import { Breadcrumbs } from "../components/Breadcrumbs";
 import { JsonLd } from "../components/JsonLd";
+import { ServiceLinks } from "../components/ServiceLinks";
 import { createMetadata } from "../lib/seo";
 import { breadcrumbSchema, serviceSchema } from "../lib/schema";
 
 export const metadata: Metadata = createMetadata({
-  title: "Indoor Air Quality Testing NYC",
+  title: "Air Quality Testing NYC | Mold Air Testing",
   description:
-    "Professional indoor air quality testing for mold spores, musty odors, moisture concerns, and remediation planning across NYC and Long Island.",
+    "Indoor air quality testing in NYC for mold spores, musty odors, flood damage, moisture concerns, and remediation planning by BPI Mold Solutions experts.",
   path: "/air-quality-testing",
   keywords: [
     "indoor air quality testing NYC",
     "air quality testing NYC",
     "mold air testing NYC",
     "mold spore testing NYC",
+    "air quality testing after flood damage",
     "Staten Island air quality testing",
     "Brooklyn air quality testing",
     "Queens mold air testing",
@@ -96,6 +99,14 @@ export default function AirQualityTestingPage() {
           />
         </div>
       </section>
+
+      <Breadcrumbs
+        items={[
+          { name: "Home", path: "/" },
+          { name: "Services", path: "/services" },
+          { name: "Air Quality Testing", path: "/air-quality-testing" },
+        ]}
+      />
 
       <section className="bg-[#F8FAFC] px-6 py-20 md:px-16">
         <div className="mx-auto max-w-7xl">
@@ -199,6 +210,7 @@ export default function AirQualityTestingPage() {
           </a>
         </div>
       </section>
+      <ServiceLinks currentPath="/air-quality-testing" />
     </main>
   );
 }

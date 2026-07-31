@@ -10,9 +10,9 @@ import {
 } from "../lib/schema";
 
 export const metadata: Metadata = createMetadata({
-  title: "About Our Mold Remediation Company",
+  title: "Licensed Mold Remediation Company NYC",
   description:
-    "Learn about BPI Mold Solutions, a Staten Island mold remediation company serving residential and commercial clients across New York City and Long Island.",
+    "Learn about BPI Mold Solutions, a licensed mold remediation company serving homes and commercial properties across New York City and Long Island NY.",
   path: "/about",
   keywords: [
     "BPI Mold Solutions",

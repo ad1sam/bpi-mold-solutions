@@ -3,12 +3,16 @@ import { ContactForm } from "../components/ContactForm";
 import type { Metadata } from "next";
 import { JsonLd } from "../components/JsonLd";
 import { createMetadata } from "../lib/seo";
-import { breadcrumbSchema, localBusinessSchema } from "../lib/schema";
+import {
+  breadcrumbSchema,
+  contactPageSchema,
+  localBusinessSchema,
+} from "../lib/schema";
 
 export const metadata: Metadata = createMetadata({
   title: "Free Mold Inspection Estimate NYC",
   description:
-    "Contact BPI Mold Solutions for a free mold inspection estimate, mold remediation quote, emergency mold help, or indoor air quality testing across NYC and Long Island.",
+    "Request a free mold inspection estimate in NYC from BPI Mold Solutions for mold remediation, removal, emergency service, and air quality testing help.",
   path: "/contact",
   keywords: [
     "contact mold removal company",
@@ -35,6 +39,11 @@ export default function ContactPage() {
             { name: "Home", path: "/" },
             { name: "Contact", path: "/contact" },
           ]),
+          contactPageSchema({
+            title: metadata.title as string,
+            description: metadata.description as string,
+            path: "/contact",
+          }),
         ]}
       />
       <SiteNav />

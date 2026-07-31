@@ -1,13 +1,17 @@
 import type { Metadata } from "next";
 import { JsonLd } from "../components/JsonLd";
 import { SiteNav } from "../components/SiteNav";
-import { createMetadata, locationPages } from "../lib/seo";
-import { breadcrumbSchema, localBusinessSchema } from "../lib/schema";
+import { createMetadata, locationPages, serviceLandingPages } from "../lib/seo";
+import {
+  breadcrumbSchema,
+  localBusinessSchema,
+  webPageSchema,
+} from "../lib/schema";
 
 export const metadata: Metadata = createMetadata({
   title: "Mold Remediation Service Areas NYC & Long Island",
   description:
-    "BPI Mold Solutions provides mold inspection, removal, remediation, air quality testing, emergency mold services, and moisture prevention across NYC and Long Island.",
+    "Find mold remediation, removal, mold inspection, air quality testing, emergency mold services, and moisture prevention across NYC and Long Island NY.",
   path: "/locations",
   keywords: [
     "mold remediation service areas",
@@ -27,6 +31,11 @@ export default function LocationsPage() {
       <JsonLd
         data={[
           localBusinessSchema(),
+          webPageSchema({
+            title: metadata.title as string,
+            description: metadata.description as string,
+            path: "/locations",
+          }),
           breadcrumbSchema([
             { name: "Home", path: "/" },
             { name: "Locations", path: "/locations" },
@@ -79,6 +88,26 @@ export default function LocationsPage() {
                 <p className="mt-4 leading-7 text-slate-600">
                   {location.description}
                 </p>
+              </a>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="bg-white px-6 py-20 md:px-16">
+        <div className="mx-auto max-w-7xl">
+          <h2 className="text-3xl font-bold md:text-4xl">
+            Popular Local Mold Searches We Serve
+          </h2>
+
+          <div className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+            {serviceLandingPages.map((page) => (
+              <a
+                key={page.slug}
+                href={`/services/${page.slug}`}
+                className="rounded-2xl border border-slate-200 bg-[#F8FAFC] p-6 font-semibold text-[#445A2A] transition hover:border-[#94D62D] hover:bg-white"
+              >
+                {page.title}
               </a>
             ))}
           </div>

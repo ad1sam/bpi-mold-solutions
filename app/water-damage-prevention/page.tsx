@@ -1,17 +1,20 @@
 import { SiteNav } from "../components/SiteNav";
 import Image from "next/image";
 import type { Metadata } from "next";
+import { Breadcrumbs } from "../components/Breadcrumbs";
 import { JsonLd } from "../components/JsonLd";
+import { ServiceLinks } from "../components/ServiceLinks";
 import { createMetadata } from "../lib/seo";
 import { breadcrumbSchema, faqSchema, serviceSchema } from "../lib/schema";
 
 export const metadata: Metadata = createMetadata({
-  title: "Water Damage Prevention & Moisture Control NYC",
+  title: "Water Damage Mold Prevention NYC",
   description:
-    "Moisture control and water-damage prevention services that help reduce mold risk for homes, apartments, and commercial properties across NYC and Long Island.",
+    "Water damage mold prevention in NYC for leaks, humidity, basement moisture, flood cleanup planning, and long-term mold risk reduction services in homes.",
   path: "/water-damage-prevention",
   keywords: [
     "water damage prevention NYC",
+    "water damage mold",
     "moisture control NYC",
     "mold prevention",
     "humidity control",
@@ -116,12 +119,22 @@ export default function WaterDamagePreventionPage() {
               height={768}
               sizes="(max-width: 1024px) 100vw, 40vw"
               className="h-full min-h-[360px] w-full object-cover"
-              unoptimized
               preload
             />
           </div>
         </div>
       </div>
+
+      <Breadcrumbs
+        items={[
+          { name: "Home", path: "/" },
+          { name: "Services", path: "/services" },
+          {
+            name: "Water Damage Prevention",
+            path: "/water-damage-prevention",
+          },
+        ]}
+      />
 
       <section className="bg-[#F8FAFC] px-6 py-20 md:px-16">
         <div className="mx-auto max-w-7xl">
@@ -256,6 +269,7 @@ export default function WaterDamagePreventionPage() {
           </a>
         </div>
       </section>
+      <ServiceLinks currentPath="/water-damage-prevention" />
     </main>
   );
 }

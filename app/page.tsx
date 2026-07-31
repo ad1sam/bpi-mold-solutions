@@ -22,9 +22,9 @@ import {
 } from "./lib/schema";
 
 export const metadata: Metadata = createMetadata({
-  title: "Mold Removal & Remediation NYC | BPI Mold Solutions",
+  title: "Mold Remediation NYC | BPI Mold Solutions",
   description:
-    "BPI Mold Solutions provides mold inspection, removal, remediation, air quality testing, emergency mold services, and water-damage prevention across NYC and Long Island.",
+    "BPI Mold Solutions provides mold remediation, mold removal, mold inspection, air quality testing, and emergency mold services in NYC and Long Island NY.",
   path: "/",
   absoluteTitle: true,
   keywords: [
@@ -33,8 +33,10 @@ export const metadata: Metadata = createMetadata({
     "mold remediation NYC",
     "air quality testing NYC",
     "emergency mold services NYC",
+    "emergency mold removal",
     "commercial mold remediation NYC",
     "water damage prevention NYC",
+    "EPA mold remediation",
     "Brooklyn mold removal",
     "Queens mold removal",
     "Manhattan mold remediation",
@@ -224,7 +226,6 @@ export default function Home() {
                     height={768}
                     sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
                     className="h-56 w-full object-cover"
-                    unoptimized={service.image === "/images/watertesting.png"}
                   />
                 )}
 
@@ -337,12 +338,12 @@ export default function Home() {
             >
               Request a Quote
             </a>
-            <a
+            <Link
               href="/services"
               className="rounded-full border-2 border-slate-200 bg-white px-9 py-4 text-center font-semibold text-[#0F172A] transition hover:-translate-y-0.5 hover:border-[#94D62D] hover:text-[#445A2A]"
             >
               Explore All Services
-            </a>
+            </Link>
           </div>
         </div>
       </section>
@@ -494,8 +495,20 @@ export default function Home() {
                   <div>
                     <p className="font-semibold text-[#0F172A]">Service Areas</p>
                     <p className="mt-2 leading-7">
-                      Brooklyn • Manhattan • Queens • Bronx • Staten Island •
-                      Long Island
+                      Brooklyn • Manhattan • Queens • Bronx •{" "}
+                      <Link
+                        href="/locations/staten-island"
+                        className="font-medium text-[#445A2A] hover:text-[#06164A]"
+                      >
+                        Staten Island mold services
+                      </Link>{" "}
+                      •{" "}
+                      <Link
+                        href="/locations/long-island"
+                        className="font-medium text-[#445A2A] hover:text-[#06164A]"
+                      >
+                        Long Island mold services
+                      </Link>
                     </p>
                   </div>
                 </div>
@@ -539,6 +552,24 @@ export default function Home() {
               <Link href="/locations" className="transition hover:text-[#94D62D]">
                 Locations
               </Link>
+              <Link
+                href="/locations/staten-island"
+                className="transition hover:text-[#94D62D]"
+              >
+                Staten Island Mold Services
+              </Link>
+              <Link
+                href="/locations/nyc"
+                className="transition hover:text-[#94D62D]"
+              >
+                NYC Mold Services
+              </Link>
+              <Link
+                href="/locations/long-island"
+                className="transition hover:text-[#94D62D]"
+              >
+                Long Island Mold Services
+              </Link>
               <Link href="/about" className="transition hover:text-[#94D62D]">
                 About
               </Link>
@@ -554,6 +585,18 @@ export default function Home() {
             <div className="flex flex-col gap-4 text-white/60">
               <Link href="/mold-removal" className="transition hover:text-[#94D62D]">
                 Mold Removal
+              </Link>
+              <Link
+                href="/services/mold-inspection-staten-island"
+                className="transition hover:text-[#94D62D]"
+              >
+                Mold Inspection Staten Island
+              </Link>
+              <Link
+                href="/services/emergency-mold-removal-nyc"
+                className="transition hover:text-[#94D62D]"
+              >
+                Emergency Mold Removal NYC
               </Link>
               <Link
                 href="/air-quality-testing"
@@ -578,6 +621,12 @@ export default function Home() {
                 className="transition hover:text-[#94D62D]"
               >
                 Water Damage Prevention
+              </Link>
+              <Link
+                href="/services/home-mold-prevention"
+                className="transition hover:text-[#94D62D]"
+              >
+                Home Mold Prevention
               </Link>
             </div>
           </div>

@@ -1,18 +1,21 @@
 import { SiteNav } from "../components/SiteNav";
 import Image from "next/image";
 import type { Metadata } from "next";
+import { Breadcrumbs } from "../components/Breadcrumbs";
 import { JsonLd } from "../components/JsonLd";
+import { ServiceLinks } from "../components/ServiceLinks";
 import { createMetadata } from "../lib/seo";
 import { breadcrumbSchema, faqSchema, serviceSchema } from "../lib/schema";
 
 export const metadata: Metadata = createMetadata({
   title: "Commercial Mold Remediation NYC",
   description:
-    "Commercial mold remediation, mold testing, moisture investigation, and indoor air quality support for offices, buildings, landlords, and property managers in NYC and Long Island.",
+    "Commercial mold remediation in NYC for offices, buildings, landlords, property managers, retail spaces, moisture issues, and indoor air quality concerns.",
   path: "/commercial-mold-services",
   keywords: [
     "commercial mold services NYC",
     "commercial mold remediation NYC",
+    "commercial mold remediation",
     "building mold removal",
     "office mold remediation",
     "mold remediation for property managers",
@@ -125,6 +128,17 @@ export default function CommercialMoldServicesPage() {
           />
         </div>
       </section>
+
+      <Breadcrumbs
+        items={[
+          { name: "Home", path: "/" },
+          { name: "Services", path: "/services" },
+          {
+            name: "Commercial Mold Services",
+            path: "/commercial-mold-services",
+          },
+        ]}
+      />
 
       <section className="bg-[#F8FAFC] px-6 py-20 md:px-16">
         <div className="mx-auto max-w-7xl">
@@ -273,6 +287,7 @@ export default function CommercialMoldServicesPage() {
           </a>
         </div>
       </section>
+      <ServiceLinks currentPath="/commercial-mold-services" />
     </main>
   );
 }

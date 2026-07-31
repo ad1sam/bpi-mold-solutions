@@ -2,9 +2,12 @@ import {
   absoluteUrl,
   BRAND_IMAGE,
   BUSINESS_ADDRESS,
+  BUSINESS_EMAIL,
   BUSINESS_NAME,
+  BUSINESS_OPENING_HOURS,
   BUSINESS_PHONE_E164,
   PRIMARY_AREAS,
+  SERVICE_AREAS,
   services,
   SITE_NAME,
   SITE_URL,
@@ -20,15 +23,38 @@ type FaqItem = {
   a: string;
 };
 
+type ArticleSchemaInput = {
+  title: string;
+  description: string;
+  path: string;
+  datePublished: string;
+  dateModified: string;
+  author: string;
+  image?: string;
+};
+
 const businessId = `${SITE_URL}/#localbusiness`;
 const organizationId = `${SITE_URL}/#organization`;
 const websiteId = `${SITE_URL}/#website`;
+const businessDescription =
+  "BPI Mold Solutions provides mold inspection, mold removal, mold remediation, air quality testing, emergency mold services, commercial mold services, and water-damage prevention across New York City and Long Island.";
 
 function areaServed() {
   return PRIMARY_AREAS.map((name) => ({
     "@type": "City",
     name,
   }));
+}
+
+function contactPoint() {
+  return {
+    "@type": "ContactPoint",
+    telephone: BUSINESS_PHONE_E164,
+    email: BUSINESS_EMAIL,
+    contactType: "customer service",
+    areaServed: SERVICE_AREAS,
+    availableLanguage: "en",
+  };
 }
 
 export function organizationSchema() {
@@ -40,6 +66,8 @@ export function organizationSchema() {
     url: SITE_URL,
     logo: absoluteUrl(BRAND_IMAGE.url),
     telephone: BUSINESS_PHONE_E164,
+    email: BUSINESS_EMAIL,
+    contactPoint: contactPoint(),
     address: {
       "@type": "PostalAddress",
       ...BUSINESS_ADDRESS,
@@ -63,14 +91,21 @@ export function websiteSchema() {
 export function localBusinessSchema() {
   return {
     "@context": "https://schema.org",
-    "@type": "ProfessionalService",
+    "@type": ["LocalBusiness", "ProfessionalService"],
     "@id": businessId,
     name: BUSINESS_NAME,
     url: SITE_URL,
     image: absoluteUrl(BRAND_IMAGE.url),
     logo: absoluteUrl(BRAND_IMAGE.url),
+    description: businessDescription,
     telephone: BUSINESS_PHONE_E164,
+    email: BUSINESS_EMAIL,
+    contactPoint: contactPoint(),
     priceRange: "$$",
+    openingHoursSpecification: BUSINESS_OPENING_HOURS.map((hours) => ({
+      "@type": "OpeningHoursSpecification",
+      ...hours,
+    })),
     address: {
       "@type": "PostalAddress",
       ...BUSINESS_ADDRESS,
@@ -97,6 +132,67 @@ export function localBusinessSchema() {
           },
         },
       })),
+    },
+  };
+}
+
+export function contactPageSchema({
+  title,
+  description,
+  path,
+}: {
+  title: string;
+  description: string;
+  path: string;
+}) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "ContactPage",
+    "@id": `${absoluteUrl(path)}#webpage`,
+    name: title,
+    description,
+    url: absoluteUrl(path),
+    isPartOf: {
+      "@id": websiteId,
+    },
+    about: {
+      "@id": businessId,
+    },
+    mainEntity: {
+      "@id": businessId,
+    },
+  };
+}
+
+export function articleSchema({
+  title,
+  description,
+  path,
+  datePublished,
+  dateModified,
+  author,
+  image = BRAND_IMAGE.url,
+}: ArticleSchemaInput) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "@id": `${absoluteUrl(path)}#article`,
+    headline: title,
+    description,
+    image: absoluteUrl(image),
+    datePublished,
+    dateModified,
+    author: {
+      "@type": "Organization",
+      name: author,
+      url: SITE_URL,
+    },
+    publisher: {
+      "@id": organizationId,
+    },
+    mainEntityOfPage: {
+      "@type": "WebPage",
+      "@id": absoluteUrl(path),
     },
   };
 }
@@ -138,6 +234,31 @@ export function serviceSchema({
   };
 }
 
+export function webPageSchema({
+  title,
+  description,
+  path,
+}: {
+  title: string;
+  description: string;
+  path: string;
+}) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "@id": `${absoluteUrl(path)}#webpage`,
+    name: title,
+    description,
+    url: absoluteUrl(path),
+    isPartOf: {
+      "@id": websiteId,
+    },
+    about: {
+      "@id": businessId,
+    },
+  };
+}
+
 export function breadcrumbSchema(items: BreadcrumbItem[]) {
   return {
     "@context": "https://schema.org",
@@ -151,7 +272,7 @@ export function breadcrumbSchema(items: BreadcrumbItem[]) {
   };
 }
 
-export function faqSchema(items: FaqItem[]) {
+export function faqSchema(items: readonly FaqItem[]) {
   return {
     "@context": "https://schema.org",
     "@type": "FAQPage",
