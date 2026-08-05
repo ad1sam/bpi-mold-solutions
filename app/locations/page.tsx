@@ -75,6 +75,15 @@ export default function LocationsPage() {
             area.
           </p>
 
+          <p className="mt-5 max-w-4xl text-lg leading-8 text-slate-600">
+            Property conditions vary across the five boroughs and Long Island.
+            Apartments and managed buildings may involve shared plumbing or
+            ventilation, while basements and lower-level rooms may be affected
+            by seepage, humidity, storms, or drainage. Each guide below connects
+            those local conditions with the inspection and remediation services
+            available from BPI Mold Solutions.
+          </p>
+
           <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {locationPages.map((location) => (
               <a
@@ -83,7 +92,11 @@ export default function LocationsPage() {
                 className="rounded-3xl border border-slate-200 bg-white p-8 shadow-sm transition hover:-translate-y-1 hover:border-[#94D62D]/40 hover:shadow-lg"
               >
                 <h3 className="text-2xl font-semibold text-[#0F172A]">
-                  {location.name}
+                  {location.slug === "queens"
+                    ? "Mold Removal in Queens"
+                    : location.slug === "long-island"
+                      ? "Mold Remediation in Long Island"
+                      : `Mold Services in ${location.name}`}
                 </h3>
                 <p className="mt-4 leading-7 text-slate-600">
                   {location.description}
@@ -91,6 +104,25 @@ export default function LocationsPage() {
               </a>
             ))}
           </div>
+        </div>
+      </section>
+
+      <section className="bg-[#06164A] px-6 py-20 text-white md:px-16">
+        <div className="mx-auto max-w-5xl text-center">
+          <h2 className="text-4xl font-bold">
+            Not Sure Which Local Service You Need?
+          </h2>
+          <p className="mx-auto mt-6 max-w-3xl text-lg leading-8 text-white/70">
+            Tell BPI Mold Solutions about the property, visible mold, musty
+            odor, leak, or water-damage concern. We can help identify a practical
+            next step for inspection, testing, removal, or remediation.
+          </p>
+          <a
+            href="/contact"
+            className="mt-8 inline-block rounded-full bg-[#94D62D] px-8 py-4 font-semibold text-[#06164A] transition hover:bg-white"
+          >
+            Request a Local Estimate
+          </a>
         </div>
       </section>
 

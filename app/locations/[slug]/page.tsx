@@ -154,7 +154,7 @@ export default async function LocationPage({ params }: LocationPageProps) {
           </p>
 
           <h1 className="max-w-4xl text-5xl font-bold leading-tight md:text-7xl">
-            Mold Services in {location.name}
+            {"h1" in location ? location.h1 : `Mold Services in ${location.name}`}
           </h1>
 
           <p className="mt-8 max-w-3xl text-xl leading-9 text-white/75">
@@ -199,6 +199,49 @@ export default async function LocationPage({ params }: LocationPageProps) {
           </p>
         </div>
       </section>
+
+      {"areasServed" in location && "serviceHighlights" in location && (
+        <section className="bg-white px-6 py-20 md:px-16">
+          <div className="mx-auto max-w-7xl">
+            <div className="grid gap-12 lg:grid-cols-[0.8fr_1.2fr]">
+              <div>
+                <h2 className="text-3xl font-bold md:text-4xl">
+                  Areas We Serve in {location.name}
+                </h2>
+                <ul className="mt-8 grid gap-3 text-slate-700 sm:grid-cols-2 lg:grid-cols-1">
+                  {location.areasServed.map((area) => (
+                    <li key={area} className="rounded-xl bg-[#F6FBF4] px-5 py-4">
+                      {area}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+
+              <div>
+                <h2 className="text-3xl font-bold md:text-4xl">
+                  Services for Local Property Conditions
+                </h2>
+                <div className="mt-8 grid gap-5">
+                  {location.serviceHighlights.map((service) => (
+                    <a
+                      key={service.title}
+                      href={service.path}
+                      className="rounded-2xl border border-slate-200 bg-[#F8FAFC] p-6 transition hover:border-[#94D62D] hover:bg-white"
+                    >
+                      <h3 className="text-xl font-semibold text-[#0F172A]">
+                        {service.title}
+                      </h3>
+                      <p className="mt-3 leading-7 text-slate-600">
+                        {service.body}
+                      </p>
+                    </a>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      )}
 
       <section className="bg-[#F8FAFC] px-6 py-20 md:px-16">
         <div className="mx-auto max-w-7xl">

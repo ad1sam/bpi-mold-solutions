@@ -44,6 +44,30 @@ export function ServiceLinks({ currentPath }: { currentPath?: string }) {
             </Link>
           ))}
           <Link
+            href="/locations/queens"
+            className="rounded-2xl border border-slate-200 bg-[#F8FAFC] p-6 transition hover:border-[#94D62D] hover:bg-white"
+          >
+            <h3 className="text-lg font-semibold text-[#0F172A]">
+              Mold Removal in Queens
+            </h3>
+            <p className="mt-3 leading-7 text-slate-600">
+              Local inspection and remediation information for Queens homes,
+              apartments, finished basements, and commercial properties.
+            </p>
+          </Link>
+          <Link
+            href="/locations/long-island"
+            className="rounded-2xl border border-slate-200 bg-[#F8FAFC] p-6 transition hover:border-[#94D62D] hover:bg-white"
+          >
+            <h3 className="text-lg font-semibold text-[#0F172A]">
+              Mold Remediation in Long Island
+            </h3>
+            <p className="mt-3 leading-7 text-slate-600">
+              Mold services for Long Island properties affected by basement
+              moisture, humidity, leaks, storms, or water damage.
+            </p>
+          </Link>
+          <Link
             href="/contact"
             className="rounded-2xl border border-[#94D62D]/40 bg-[#F6FBF4] p-6 transition hover:border-[#445A2A]"
           >

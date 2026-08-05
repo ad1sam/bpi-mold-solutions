@@ -768,11 +768,37 @@ export const locationPages = [
   {
     slug: "queens",
     name: "Queens",
-    title: "Mold Inspection Queens NY",
+    title: "Mold Inspection & Removal Queens NY",
     description:
-      "Mold inspection in Queens NY for homes, finished basements, apartments, commercial spaces, musty odors, water damage, and air quality concerns.",
+      "Mold inspection and removal in Queens NY for homes, finished basements, apartments, commercial spaces, water damage, and air quality concerns.",
+    h1: "Mold Inspection and Removal in Queens, NY",
     intro:
-      "Queens buildings often combine finished basements, attached homes, apartments, and busy commercial spaces. Our team supports Queens property owners with mold inspection, moisture source review, remediation recommendations, and air quality testing when conditions are unclear.",
+      "Queens has a wide mix of attached homes, multi-family buildings, finished basements, apartments, and street-level commercial spaces. BPI Mold Solutions helps property owners trace mold concerns back to plumbing leaks, basement dampness, roof or window intrusion, condensation, and ventilation problems before recommending inspection, removal, testing, or prevention work.",
+    areasServed: [
+      "Astoria and Long Island City",
+      "Flushing and Bayside",
+      "Jamaica and Richmond Hill",
+      "Forest Hills and Rego Park",
+      "Jackson Heights and Elmhurst",
+      "Howard Beach and the Rockaways",
+    ],
+    serviceHighlights: [
+      {
+        title: "Queens Mold Inspection",
+        body: "Inspection is useful for musty odors, recurring stains, finished-basement dampness, tenant concerns, and suspected mold behind walls, ceilings, cabinets, or flooring.",
+        path: "/mold-inspection",
+      },
+      {
+        title: "Mold Removal in Queens",
+        body: "Remediation planning considers the affected material, access, containment needs, and the moisture source so the scope fits the actual property conditions.",
+        path: "/mold-removal",
+      },
+      {
+        title: "Air Quality and Moisture Concerns",
+        body: "Testing may help when odors persist without visible growth, while moisture review helps connect indoor conditions to leaks, humidity, or ventilation.",
+        path: "/air-quality-testing",
+      },
+    ],
     problems: [
       "Finished basement moisture and hidden wall dampness",
       "Leaks around kitchens, bathrooms, and plumbing lines",
@@ -870,9 +896,35 @@ export const locationPages = [
     name: "Long Island",
     title: "Mold Remediation Long Island NY",
     description:
-      "Mold remediation in Long Island NY for homes, basements, commercial buildings, coastal humidity, storm water damage, and air quality concerns.",
+      "Mold remediation in Long Island NY for homes and commercial properties affected by basement moisture, coastal humidity, leaks, storms, and water damage.",
+    h1: "Mold Remediation in Long Island, NY",
     intro:
-      "Long Island properties can face mold concerns from coastal humidity, basement moisture, roof leaks, plumbing failures, and storm-related water intrusion. BPI Mold Solutions helps homeowners and commercial property owners assess conditions and plan remediation.",
+      "Long Island homes and commercial properties can experience moisture from high water tables, coastal weather, humid summers, basement seepage, roof leaks, plumbing failures, and storm-related intrusion. BPI Mold Solutions helps owners distinguish an isolated surface concern from damp materials or hidden growth that may require inspection and a defined remediation scope.",
+    areasServed: [
+      "Nassau County communities",
+      "Western Suffolk County communities",
+      "North Shore properties",
+      "South Shore properties",
+      "Long Island homes and rental properties",
+      "Offices, retail, and commercial buildings",
+    ],
+    serviceHighlights: [
+      {
+        title: "Mold Remediation in Long Island",
+        body: "Remediation can include containment, removal or cleaning of affected materials, and recommendations for the leak, humidity, or water-intrusion source.",
+        path: "/mold-removal",
+      },
+      {
+        title: "Basement and Storm-Water Inspection",
+        body: "Inspection helps evaluate damp lower levels, finished basements, roof or foundation intrusion, and materials affected after storms or plumbing failures.",
+        path: "/mold-inspection",
+      },
+      {
+        title: "Commercial Mold Services",
+        body: "Commercial assessment considers occupied areas, storage spaces, scheduling, access, moisture history, and the need for coordinated remediation planning.",
+        path: "/services/commercial-mold-remediation-long-island",
+      },
+    ],
     problems: [
       "Basement moisture and damp finished spaces",
       "Storm-related water intrusion and roof leaks",
@@ -880,6 +932,10 @@ export const locationPages = [
       "Mold concerns in rental, residential, and commercial properties",
     ],
     faqs: [
+      {
+        q: "What moisture problems commonly lead to mold on Long Island?",
+        a: "Basement seepage, humid conditions, roof and plumbing leaks, storm water, and materials that remained damp after a water event can all create conditions for mold growth.",
+      },
       {
         q: "Does insurance cover mold remediation on Long Island?",
         a: "Coverage depends on your insurance policy and the cause of the moisture event. Ask your carrier directly, and use the inspection findings and quote to support the conversation.",

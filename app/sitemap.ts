@@ -4,35 +4,46 @@ import {
   coreRoutes,
   locationPages,
   serviceLandingPages,
+  SITE_URL,
 } from "./lib/seo";
-import { blogRoutes } from "./lib/blog";
+import { blogPosts } from "./lib/blog";
 
-const lastModified = new Date("2026-07-20");
+const STATIC_CONTENT_LAST_MODIFIED = "2026-07-31";
+const LOCATION_CONTENT_LAST_MODIFIED = "2026-08-05";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const locationRoutes = [
+  const staticPaths = [
+    ...coreRoutes.map((route) => route.path),
+    ...serviceLandingPages.map((page) => `/services/${page.slug}`),
+    "/locations",
+    ...locationPages.map((location) => `/locations/${location.slug}`),
+  ];
+
+  const staticEntries: MetadataRoute.Sitemap = staticPaths.map((path) => ({
+    url: path === "/" ? SITE_URL : absoluteUrl(path),
+    lastModified:
+      path === "/locations" ||
+      path === "/locations/queens" ||
+      path === "/locations/long-island"
+        ? LOCATION_CONTENT_LAST_MODIFIED
+        : STATIC_CONTENT_LAST_MODIFIED,
+  }));
+
+  const blogIndexLastModified = blogPosts.reduce(
+    (latest, post) => (post.dateModified > latest ? post.dateModified : latest),
+    "",
+  );
+
+  const blogEntries: MetadataRoute.Sitemap = [
     {
-      path: "/locations",
-      changeFrequency: "monthly" as const,
-      priority: 0.78,
+      url: absoluteUrl("/blog"),
+      lastModified: blogIndexLastModified,
     },
-    ...locationPages.map((location) => ({
-      path: `/locations/${location.slug}`,
-      changeFrequency: "monthly" as const,
-      priority: 0.74,
+    ...blogPosts.map((post) => ({
+      url: absoluteUrl(`/blog/${post.slug}`),
+      lastModified: post.dateModified || post.datePublished,
     })),
   ];
 
-  const serviceLandingRoutes = serviceLandingPages.map((page) => ({
-    path: `/services/${page.slug}`,
-    changeFrequency: "monthly" as const,
-    priority: page.area === "Staten Island" ? 0.86 : 0.82,
-  }));
-
-  return [...coreRoutes, ...serviceLandingRoutes, ...locationRoutes, ...blogRoutes].map((route) => ({
-    url: absoluteUrl(route.path),
-    lastModified,
-    changeFrequency: route.changeFrequency,
-    priority: route.priority,
-  }));
+  return [...staticEntries, ...blogEntries];
 }
