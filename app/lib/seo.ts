@@ -23,10 +23,10 @@ export const BUSINESS_OPENING_HOURS = [
   },
 ];
 export const BUSINESS_ADDRESS = {
-  streetAddress: "1166 Bay Street",
+  streetAddress: "1393 Clove Rd",
   addressLocality: "Staten Island",
   addressRegion: "NY",
-  postalCode: "10305",
+  postalCode: "10301",
   addressCountry: "US",
 };
 

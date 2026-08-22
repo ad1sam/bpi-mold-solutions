@@ -476,9 +476,9 @@ export default function Home() {
                   <div>
                     <p className="font-semibold text-[#0F172A]">Address</p>
                     <p className="mt-2 leading-7">
-                      1166 Bay Street,
+                      1393 Clove Rd,
                       <br />
-                      Staten Island, NY 10305
+                      Staten Island, NY 10301
                     </p>
                   </div>
 
